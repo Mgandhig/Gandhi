@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23111111' rx='20'/%3E%3Ctext y='70' x='50' font-family='Georgia, serif' font-size='60' font-weight='bold' fill='%23C1A066' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+  <title>CICLO - Estudio de Caso | Gandhi</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Case Study Specific Styles */
+    body { background-color: var(--bg-color); }
+    
+    .case-nav {
+      position: fixed;
+      top: 0; width: 100%; z-index: 1000;
+      padding: 1.5rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(17, 17, 17, 0.60); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-delicate);
+      transition: all 0.3s ease;
+    }
+    .btn-back {
+      display: flex; align-items: center; gap: 0.5rem;
+      color: var(--text-muted); text-decoration: none; font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s;
+    }
+    .btn-back:hover { color: var(--accent-gold); }
+    
+    .case-hero {
+      padding: 180px 4rem 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .case-title {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+    .case-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    
+    .case-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: left;
+      border-top: 1px solid var(--border-delicate);
+      border-bottom: 1px solid var(--border-delicate);
+      padding: 2.5rem 0;
+      margin-bottom: 4rem;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.6rem; }
+    .meta-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); }
+    .meta-value { font-size: 0.9rem; color: var(--text-main); font-weight: 300; line-height: 1.4; }
+    
+    .article-body {
+      max-width: 750px;
+      margin: 0 auto;
+      padding-bottom: 120px;
+    }
+    .article-body h2 {
+      clear: both;
+      font-family: var(--font-serif);
+      font-size: 2.22rem;
+      color: var(--accent-gold);
+      margin: 8rem 0 2.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+    .article-body p {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.015em;
+    }
+    .article-body strong {
+      color: var(--text-main);
+      font-weight: 400;
+    }
+    
+    .insight-quote {
+      border-left: 2px solid var(--accent-gold);
+      padding-left: 2.5rem;
+      margin: 4rem 0;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      line-height: 1.4;
+      color: var(--text-main);
+      font-style: italic;
+    }
+    
+    /* Arquitectura para Diagramas Metodológicos */
+    .article-diagram {
+      margin: 5rem 0;
+      text-align: center;
+      width: 100%;
+    }
+    .article-diagram img {
+      width: 100%;
+      background-color: #FAFAFA;
+      padding: 2rem;
+      box-sizing: border-box;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      filter: brightness(0.9) contrast(1.1) grayscale(30%);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .article-diagram:hover img {
+      filter: brightness(1) contrast(1) grayscale(0%);
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 900px) {
+      .case-nav { padding: 1rem 2rem; }
+      .case-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .case-hero { padding: 140px 2rem 40px; }
+      .article-body { padding: 0 2rem 80px; }
+      .insight-quote { font-size: 1.4rem; padding-left: 1.5rem; }
+    }
+    
+  </style>
+</head>
+<body>
+  <nav class="case-nav">
+    <a href="index.html" class="logo">GANDHI_</a>
+    <ul style="list-style:none; margin:0; padding:0;">
+      <li><a href="index.html#proyectos" class="btn-back">&larr; VOLVER AL PORTAL</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="case-hero compact-hero observer-item fade-in-up">
+      <span class="eyebrow" style="margin-bottom: 1.5rem;">UX Research & Ergonomics</span>
+      <h1 class="serif-title case-title">CICLO</h1>
+      <p class="case-subtitle">Un divertidor para primeras infancias, fomentando la motricidad libre y la exploración autónoma en espacios públicos.</p>
+      
+      <div class="case-meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Estudio</span>
+          <span class="meta-value">Fundación FEMSA<br>Primera Infancia</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Mi Rol</span>
+          <span class="meta-value">UX Research<br>Ergonomic Design</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Duración</span>
+          <span class="meta-value">Ciclo Académico</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Metodología</span>
+          <span class="meta-value">AEIOU Framework<br>Triple Diamante</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="article-body">
+      <h2 style="margin-top: 4rem;">El Reto de los Parques</h2>
+      
+      <figure class="article-image pull-right observer-item fade-in-up" style="margin-right: -4rem;">
+        <img src="img/CICLO/Parque.jpg" alt="Observación en Parques">
+        <figcaption class="observer-item fade-in" style="font-size: 0.8rem; color: var(--text-muted); margin-top: -0.5rem; text-align: center;">Inmersión etnográfica en campo.</figcaption>
+      </figure>
+
+      <p class="spacer-extra">Documentamos la dinámica de juego en <strong class="highlight-gold">3 parques de la Ciudad de México</strong> — Parque de los Venados, Parque Lineal Vicente Guerrero y Parque Sullivan — con un total de 12 entrevistas a niños y cuidadores. Lo que encontramos fue consistente: los juegos existentes imponen una sola forma de usarse. Los niños los ignoraban y creaban la suya — escalando por donde no debían, usando la estructura de formas no previstas, reinventando el juego constantemente.</p>
+
+      <div class="insight-quote observer-item fade-in" style="margin-top: 6rem; margin-bottom: 6rem;">
+        "Los niños no siguen reglas cuando juegan. Reinterpretan los objetos y crean sus propias formas de interacción."
+      </div>
+      
+      <h2>Investigación Contextual</h2>
+      
+      <p class="spacer-extra">¿Cómo podríamos crear un espacio de juego libre que rete la psicomotricidad de los niños sin necesidad de instrucciones? Aplicamos la metodología <strong class="highlight-gold">AEIOU (Activities, Environments, Interactions, Objects, Users)</strong> para desglosar cada fricción del ecosistema.</p>
+
+      <!-- Native CSS AEIOU Matrix -->
+      <div class="aeiou-matrix observer-item fade-in-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1.5rem; margin: 5rem 0;">
+        <div style="background: rgba(255,255,255,0.03); padding: 2rem 1.5rem; border-radius: 8px; border-top: 2px solid var(--accent-gold);">
+          <h3 style="color: var(--accent-gold); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 1rem; text-transform: uppercase;">Actividades</h3>
+          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.6;">Comportamiento cíclico de validación motriz. Escalan por rutas atípicas buscando autonomía. Cuidadores oscilan entre vigilancia e intervención.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); padding: 2rem 1.5rem; border-radius: 8px; border-top: 2px solid var(--accent-gold);">
+          <h3 style="color: var(--accent-gold); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 1rem; text-transform: uppercase;">Entornos</h3>
+          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.6;">Ecosistema condicionado térmicamente. El sol fuerza a los infantes a usar espacios residuales asoleados como refugios térmicos de planeación.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); padding: 2rem 1.5rem; border-radius: 8px; border-top: 2px solid var(--accent-gold);">
+          <h3 style="color: var(--accent-gold); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 1rem; text-transform: uppercase;">Interac.</h3>
+          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.6;">Uso no normativo: suben laderas en reversa. Sociabilidad estratégica para rotaciones en equipos y acuerdos tácitos para evitar colisiones.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); padding: 2rem 1.5rem; border-radius: 8px; border-top: 2px solid var(--accent-gold);">
+          <h3 style="color: var(--accent-gold); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 1rem; text-transform: uppercase;">Objetos</h3>
+          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.6;">Nodo principal que detona un patrón hiperactivo (subir, correr, deslizar, brincar) que el mobiliario actual no soporta fluidamente por falta de red.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); padding: 2rem 1.5rem; border-radius: 8px; border-top: 2px solid var(--accent-gold);">
+          <h3 style="color: var(--accent-gold); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 1rem; text-transform: uppercase;">Usuarios</h3>
+          <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.6;">Primarios: Infancias tempranas (3-5 años) buscando agenciar riesgo. Secundarios: Cuidadores (30-35 años) cuyo estrés delimita el radio.</p>
+        </div>
+      </div>
+
+      <figure class="article-image pull-left observer-item fade-in-up" style="margin-left: -5rem; width: 200px; box-shadow: none; background: transparent; margin-top: 1rem;">
+        <img src="img/CICLO/Fichas niño padre.png" loading="lazy" alt="Métrica de hipervigilancia" style="aspect-ratio: 4/5; object-fit: cover; filter: brightness(0.9) contrast(1.1); border-radius: 8px;">
+        <figcaption style="font-size: 0.75rem; margin-top: 0.8rem;">Registro de campo: Dinámica conductual infante-cuidador.</figcaption>
+      </figure>
+
+      <p class="spacer-extra" style="margin-bottom: 6rem; padding-top: 3rem;">Realizamos investigación de campo y entrevistas a profundidad para entender la delgada línea entre la seguridad infraestructural y la sobreprotección conductual sistémica. Notamos un patrón crítico: el diseño de los parques actuales está hecho para la tranquilidad del padre, y ese mismo diseño es el que inhibe la exploración motriz libre del niño.</p>
+
+      <!-- Diagrama Metodológico Principal -->
+      <figure class="article-diagram observer-item fade-in-up" style="margin: 5rem 0;">
+        <img src="img/CICLO/Cronograma triple diamante.png" loading="lazy" alt="Triple Diamante">
+        <figcaption>Estrategia de diseño basada en la arquitectura del Triple Diamante.</figcaption>
+      </figure>
+
+      <h2>La Forma que Sigue a la Función</h2>
+      
+      <figure class="article-image pull-right observer-item fade-in-up" style="margin-right: -4rem;">
+        <img src="img/CICLO/Boceto.png" loading="lazy" alt="Bocetos de CICLO">
+        <figcaption class="observer-item fade-in" style="font-size: 0.8rem; color: var(--text-muted); margin-top: -0.5rem; text-align: center;">Primeras iteraciones formales del diseño.</figcaption>
+      </figure>
+
+      <p class="spacer-extra">A través de la iteración ergonómica y pruebas de concepto en colaboración con <strong class="highlight-gold">Fundación FEMSA</strong>, diseñamos CICLO. Un ente orgánico cuyo uso es deducible y adaptable al tamaño y coraje de cada infante.</p>
+
+      <figure class="article-image pull-left observer-item fade-in-up" style="margin-left: -5rem; width: 200px; box-shadow: none; background: transparent; margin-top: 1rem;">
+        <img src="img/CICLO/Fichas de datos.png" loading="lazy" alt="Data Sheet" style="aspect-ratio: 4/5; object-fit: cover; filter: brightness(0.9) contrast(1.1); border-radius: 8px;">
+        <figcaption style="font-size: 0.75rem; margin-top: 0.8rem; text-align: left;">Sintetizando hallazgos constructivos.</figcaption>
+      </figure>
+
+      <p class="spacer-extra" style="padding-top: 3rem;">El diseño de CICLO incorpora un pasamanos circular inclinado a 45° con travesaños a 25 cm de separación — una medida validada directamente con usuarios de entre 1 y 6 años durante el simulador funcional. Esta geometría permite escalar, colgarse y atravesar sin instrucciones, estimulando el desarrollo motor a través de un <strong class="highlight-gold">affordance</strong> natural que no requiere vigilancia invasiva.</p>
+
+      <figure class="article-diagram observer-item fade-in-up" style="margin: 5rem 0;">
+        <img src="img/CICLO/Gráficas.png" loading="lazy" alt="Métricas Funcionales" style="width: 100%; filter: invert(0.95) grayscale(100%); mix-blend-mode: screen; opacity: 0.85; box-shadow: none; background: transparent; padding: 0;">
+        <figcaption>Síntesis geométrica y métricas de impacto motriz y frecuencia de uso.</figcaption>
+      </figure>
+      
+      <p class="spacer-extra">El resultado es un sistema que no impone reglas, sino que sugiere posibilidades, devolviendo la agencia al niño en el espacio público urbano.</p>
+
+      <div class="conclusion-section observer-item fade-in-up" style="margin-top: 0;">
+        <h2>Impacto y Recepción</h2>
+        
+        <figure class="article-image pull-right observer-item fade-in-up" style="margin-top: 0.5rem; margin-left: 3rem; margin-right: -5rem; width: 320px;">
+          <img src="img/CICLO/Ilustración pruebas.png" loading="lazy" alt="Pruebas de usuario" style="height: 240px; object-fit: cover; object-position: center;">
+          <figcaption style="font-size: 0.75rem;">Testeo de usabilidad y despliegue.</figcaption>
+        </figure>
+
+        <p class="spacer-extra" style="font-size: 1.2rem; color: var(--text-main);">Aproximadamente <strong class="highlight-gold">12 niños de entre 1 y 6 años</strong> probaron el simulador funcional durante las pruebas de campo. El insight más relevante no fue técnico — fue humano: los momentos de mayor tensión para los cuidadores ocurrían cuando perdían contacto visual con el niño o cuando el entorno no permitía una supervisión cómoda. CICLO responde directamente a esto: su altura máxima de 1.40 m y su forma circular garantizan visibilidad completa desde cualquier ángulo, sin eliminar el reto físico que el niño necesita.</p>
+        
+        <div class="future-box observer-item fade-in-up">
+          <h3>Visión a Futuro</h3>
+          <p>El proyecto busca estandarizarse como un mobiliario urbano modular que pueda integrarse en cualquier parque de México, devolviendo la autonomía a la primera infancia mediante el diseño sistémico.</p>
+        </div>
+      </div>
+      <div style="clear: both;"></div>
+    </article>
+  </main>
+  
+  <footer style="border-top: 1px solid var(--border-delicate); padding: 3rem 4rem; background: var(--bg-color);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+      <a href="sam.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s;">← Proyecto Anterior (SAM)</a>
+      <div style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.2rem;">GANDHI_</div>
+      <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s;">Volver al Inicio</a>
+    </div>
+  </footer>
+  <!-- Animaciones lógicas -->
+  <script src="main.js"></script>
+</body>
+</html>

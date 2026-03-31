@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23111111' rx='20'/%3E%3Ctext y='70' x='50' font-family='Georgia, serif' font-size='60' font-weight='bold' fill='%23C1A066' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+  <title>Curario - Estudio de Caso | Gandhi</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Case Study Specific Styles */
+    body { background-color: var(--bg-color); }
+    
+    .case-nav {
+      position: fixed;
+      top: 0; width: 100%; z-index: 1000;
+      padding: 1.5rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(17, 17, 17, 0.60); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-delicate);
+      transition: all 0.3s ease;
+    }
+    .btn-back {
+      display: flex; align-items: center; gap: 0.5rem;
+      color: var(--text-muted); text-decoration: none; font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s;
+    }
+    .btn-back:hover { color: var(--accent-gold); }
+    
+    .case-hero {
+      padding: 180px 4rem 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .case-title {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+    .case-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    
+    .case-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: left;
+      border-top: 1px solid var(--border-delicate);
+      border-bottom: 1px solid var(--border-delicate);
+      padding: 2.5rem 0;
+      margin-bottom: 4rem;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.6rem; }
+    .meta-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); }
+    .meta-value { font-size: 0.9rem; color: var(--text-main); font-weight: 300; line-height: 1.4; }
+    
+    .case-hero-image {
+      width: 100%;
+      height: 65vh;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+    .case-hero-image img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    
+    .article-body {
+      max-width: 750px;
+      margin: 0 auto;
+      padding-bottom: 120px;
+    }
+    .article-body h2 {
+      clear: both; /* Evita colisión tipográfica con imágenes flotantes previas */
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--accent-gold);
+      margin: 8rem 0 2.5rem; /* Capítulos editoriales híper-aislados para marcar ritmo */
+      font-weight: 400;
+      line-height: 1.3;
+    }
+    .article-body p {
+      font-size: 1.1rem;
+      line-height: 1.85; /* Refinamiento profundo de legibilidad vertical */
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.015em;
+    }
+    .article-body strong {
+      color: var(--text-main);
+      font-weight: 400;
+    }
+    
+    .insight-quote {
+      border-left: 2px solid var(--accent-gold);
+      padding-left: 2.5rem;
+      margin: 4rem 0;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      line-height: 1.4;
+      color: var(--text-main);
+      font-style: italic;
+    }
+    
+    @media (max-width: 900px) {
+      .case-nav { padding: 1rem 2rem; }
+      .case-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .case-hero { padding: 140px 2rem 40px; }
+      .article-body { padding: 0 2rem 80px; }
+      .case-hero-image { height: 40vh; }
+      .insight-quote { font-size: 1.4rem; padding-left: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="case-nav">
+    <a href="index.html" class="logo">GANDHI_</a>
+    <a href="index.html#proyectos" class="btn-back">← Regresar</a>
+  </nav>
+
+  <main>
+    <section class="case-hero compact-hero">
+      <span class="eyebrow" style="margin-bottom: 1.5rem;">UX Research & Service Design</span>
+      <h1 class="serif-title case-title">Curario</h1>
+      <p class="case-subtitle">Un programa de curaduría bibliográfica diseñado para remover fricciones ambientales y reconectar a los estudiantes con el acervo bibliográfico.</p>
+      
+      <div class="case-meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Mi Rol</span>
+          <span class="meta-value">UX Researcher<br>Service Designer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Contexto</span>
+          <span class="meta-value">Académico (UNAM)<br>Biblioteca Clara Porset</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Duración</span>
+          <span class="meta-value">4 Fases Estratégicas</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Herramientas</span>
+          <span class="meta-value">Entrevistas a profundidad, Mapas de Empatía, Storyboards</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="article-body">
+      <h2>El Problema Invisible</h2>
+      
+      <figure class="article-image pull-left observer-item fade-in-up">
+        <img src="img/Curario/Entrevista 1.jpg" alt="Entrevista etnográfica en la biblioteca" style="border: none; border-radius: 4px;">
+        <figcaption class="observer-item fade-in" style="font-size: 0.8rem; color: var(--text-muted); margin-top: -0.5rem; text-align: center;">Inmersión Contextual.</figcaption>
+      </figure>
+
+      <p class="spacer-extra">La Biblioteca Clara Porset es el espacio bibliográfico insignia para la licenciatura de Diseño Industrial. Durante nuestra primera fase de inmersión y observación, detectamos una paradoja contundente: <strong class="highlight-gold">el espacio siempre estaba lleno, pero el 80% de los usuarios casi no usaba los libros de los estantes.</strong></p>
+      
+      <div class="insight-quote">
+        "¿Cómo podríamos facilitar el descubrimiento de conocimiento sin que los estudiantes tengan que enfrentarse activamente a la intimidación del espacio?"
+      </div>
+      
+      <h2>Investigación y Hallazgos</h2>
+      <p class="spacer-extra">Condujimos una muestra de investigación directa con <strong class="highlight-gold">30 participantes (27 estudiantes de diseño y 3 de otras facultades)</strong>. Sistematizamos la información recogida mediante la formación de mapas de empatía para poder entender emociones, frustraciones y rutinas subyacentes.</p>
+      
+      <!-- User Flow Diagram (Puro CSS y HTML Nativo) -->
+      <h3 style="color: var(--text-main); font-weight: 500; font-family: var(--font-sans); margin-top: 3.5rem; margin-bottom: 0.5rem; font-size: 1.3rem;">Fricciones detectadas: El Flujo de Usuario Pobre</h3>
+      <div class="user-flow" style="margin-bottom: 4rem;">
+        <div class="flow-step">
+          <div class="flow-icon"><i class='bx bx-user'></i></div>
+          <div class="flow-text">Usuario visita por tranquilidad.</div>
+        </div>
+        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="flow-step friction">
+          <div class="flow-icon"><i class='bx bx-error-circle'></i></div>
+          <div class="flow-text">Pasillos demasiado estrechos y densos.</div>
+        </div>
+        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="flow-step friction">
+          <div class="flow-icon"><i class='bx bx-comment-x'></i></div>
+          <div class="flow-text">Ignorancia / Miedo o pena a preguntar al staff.</div>
+        </div>
+        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="flow-step friction">
+          <div class="flow-icon"><i class='bx bx-laptop'></i></div>
+          <div class="flow-text">Abandono (Se sienta a usar la laptop y no lee).</div>
+        </div>
+      </div>
+
+      <p class="spacer-extra">Los datos concluyeron que habían dos fricciones sistémicas vitales: El espacio entre los pasillos es muy chico dificultando la inmersión pasiva, y la gente es susceptible de sentir intimidación al no saber qué título solicitar a bibliotecarias expertas. <strong class="highlight-gold">Existía una barrera de interacción humana e infraestructural enorme.</strong></p>
+
+      <div style="display: flex; justify-content: center; gap: 3.5rem; margin: 4rem 0; flex-wrap: wrap;">
+        <figure class="article-image tilt-left observer-item fade-in-up" style="margin: 0;">
+          <img src="img/Curario/Entrevista 2.jpg" alt="Entrevistas" style="aspect-ratio: 4/3; object-fit: cover;">
+          <figcaption class="observer-item fade-in" style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: -0.5rem;">Entrevistas.</figcaption>
+        </figure>
+
+        <figure class="article-image tilt-right observer-item fade-in-up" style="margin: 0;">
+          <img src="img/Curario/Mapas de empatia.jpg" alt="Mapas de empatía" style="aspect-ratio: 4/3; object-fit: cover; object-position: top;">
+          <figcaption class="observer-item fade-in" style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: -0.5rem;">Análisis actitudinal.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Oportunidades de Diseño: Curario</h2>
+      <p class="spacer-extra">Debíamos transformar la percepción de la biblioteca de "centro de computadoras silencioso" a "espacio curatorial de diseño dinámico". No podíamos mover los muros, pero sí alterar cómo se accede a los libros sutilmente.</p>
+
+      <p class="spacer-extra">Propusimos <strong class="highlight-gold">Curario</strong>, un programa de diseño de servicios enfocado en hacer curadurías de libros (separados del estante oscuro primario) con temáticas mensuales dictadas por la agenda creativa. Dividimos su operación y viaje del servicio (Service Blueprint) en las siguientes secuencias:</p>
+
+      <ol class="numbered-list">
+        <li><strong style="color: var(--text-main);">Inicio de mes:</strong> Personal explora tendencias para conocer el tema del mes.</li>
+        <li><strong style="color: var(--text-main);">Investigación:</strong> Búsqueda de libros escondidos del tema con bibliotecarias.</li>
+        <li><strong style="color: var(--text-main);">Selección Estratégica:</strong> Decantación de 7 u 8 libros estelares para la curaduría narrativa.</li>
+        <li><strong style="color: var(--text-main);">Montaje Espacial:</strong> Diseño del cartel promocional y el acomodo del inmersivo.</li>
+        <li><strong style="color: var(--text-main);">Préstamo Ágil:</strong> Se habilita un registro express y especial para esta colección sin fricciones.</li>
+        <li><strong style="color: var(--text-main);">Interacción Fortuita:</strong> Los usuarios hojean el material atraídos orgánicamente.</li>
+        <li><strong style="color: var(--text-main);">Retroalimentación:</strong> Accesibilidad a buzón donde los usuarios dejan qué tópicos desearían.</li>
+        <li><strong style="color: var(--text-main);">Cierre:</strong> Al término, los libros regresan a resguardo formal para reiniciar el ciclo.</li>
+      </ol>
+      
+      <div class="conclusion-section">
+        <h2>Impacto y Recepción</h2>
+        
+        <figure class="article-image pull-left observer-item fade-in-up" style="margin-top: 0.5rem; margin-right: 3rem; margin-left: -5rem; width: 220px;">
+          <img src="img/Curario/Maqueta 2.jpg" alt="Testeo físico de Curario" style="height: 180px; object-fit: cover; object-position: bottom;">
+          <figcaption style="font-size: 0.75rem;">Fase 4: Despliegue de prototipo rápido.</figcaption>
+        </figure>
+
+        <p class="spacer-extra" style="font-size: 1.2rem; color: var(--text-main);">Este diseño de servicios logra visibilizar acervos desapercibidos e incrementa notablemente la lectura crítica <strong class="highlight-gold">sin necesidad de invertir ni reformar el mobiliario físico</strong>. Es un diseño social, invisible y sumamente funcional asimilado en la rutina del alumno.</p>
+        
+        <div class="future-box observer-item fade-in-up">
+          <h3>Visión a Futuro y Siguientes Pasos</h3>
+          <p>La investigación UX nos enseñó que este servicio es escalable. A futuro, este programa piloto puede <strong>fortalecerse mediante la digitalización de las curadurías mensuales</strong>, creando un archivo remoto en línea que sea directamente accesible desde el catálogo público del Centro de Investigaciones de Diseño Industrial (CIDI).</p>
+          <p style="margin-top: 1.5rem;">Como Fase II, el plan de operación pretende establecer vínculos sistémicos con los profesores de área de la facultad, de manera que la temática mensual expuesta se alinee milimétricamente con el *syllabus* del semestre en curso; transformando a la infraestructura de lo que antes era "una bodega muda", en un ente activo de intercambio transversal.</p>
+        </div>
+      </div>
+      
+      <!-- Clear floats helper before closing article -->
+      <div style="clear: both;"></div>
+    </article>
+  </main>
+  
+  <footer style="border-top: 1px solid var(--border-delicate); padding: 3rem 4rem; background: var(--bg-color);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-family: var(--font-serif); color: var(--accent-gold); font-size: 1.2rem;">GANDHI_</div>
+      <a href="sam.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s;">Siguiente Proyecto (SAM) →</a>
+    </div>
+  </footer>
+  <!-- Animaciones lógicas (Fade In On Scroll) -->
+  <script src="main.js"></script>
+</body>
+</html>
