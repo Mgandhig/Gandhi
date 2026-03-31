@@ -819,12 +819,25 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .user-flow {
-    flex-direction: column;
-    padding: 2rem;
-    gap: 1.5rem;
-  }
+  .user-flow { flex-direction: column; padding: 2rem; gap: 1.5rem; }
   .flow-arrow { transform: rotate(90deg); }
   .flow-step { max-width: 100%; flex-direction: row; text-align: left; }
   .article-image.two-images { grid-template-columns: 1fr; }
+  
+  /* Pushing Mobile Resets for Editorial View */
+  .spacer-extra { margin-bottom: 2rem !important; padding-top: 1rem !important; }
+  .article-body h2 { margin: 3rem 0 1.5rem !important; }
+  .article-diagram { margin: 2rem 0 !important; }
+  .insight-quote { margin: 2rem 0 !important; font-size: 1.3rem !important; padding-left: 1.5rem !important; }
+  
+  .article-image.pull-left,
+  .article-image.pull-right,
+  .article-image {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 2.5rem auto !important;
+    float: none !important;
+    transform: none !important;
+    display: block !important;
+  }
 }
