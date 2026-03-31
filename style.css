@@ -546,15 +546,15 @@ footer {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 2rem; }
-  .hero-content { margin: 0 auto; width: 100%; }
-  .hero-image { max-width: 280px; margin: 0 auto; width: 100%; display: block; }
+  .hero { flex-direction: column; justify-content: flex-start; align-items: flex-start; text-align: left; gap: 3rem; padding-top: 120px; }
+  .hero-content { margin: 0; width: 100%; }
+  .hero-image { max-width: 280px; margin: 0 auto; width: 100%; display: block; align-self: center; }
   .grid { grid-template-columns: 1fr; }
   .card-featured { flex-direction: column; }
   .card-featured .card-image, .card-featured .card-content { width: 100%; }
-  .sobre-mi-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; justify-items: center; }
-  .sobre-mi-content { margin: 0 auto; }
-  .sobre-mi-image { max-width: 280px; margin: 0 auto; width: 100%; display: block; }
+  .sobre-mi-inner { grid-template-columns: 1fr; gap: 3rem; text-align: left; justify-items: flex-start; }
+  .sobre-mi-content { margin: 0; width: 100%; }
+  .sobre-mi-image { max-width: 280px; margin: 0 auto; width: 100%; display: block; align-self: center; }
   .orbital-section { overflow: hidden; padding: 100px 0; }
   .orbit { width: 220px; height: 220px; top: 50%; } /* Radios a 110px en móvil */
   .software-icon { font-size: 0.65rem; }
