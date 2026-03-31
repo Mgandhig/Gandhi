@@ -547,9 +547,9 @@ footer {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero { flex-direction: column; justify-content: flex-start; align-items: flex-start; text-align: left; gap: 3rem; padding-top: 120px; }
+  .hero { flex-direction: column; justify-content: flex-start; align-items: flex-start; text-align: left; gap: 2rem; padding-top: 100px; }
   .hero-content { margin: 0; width: 100%; }
-  .hero-image { max-width: 280px; margin: 0 auto; width: 100%; display: block; align-self: center; }
+  .hero-image { max-width: 200px; margin: 0 auto; width: 100%; display: block; align-self: center; }
   .grid { grid-template-columns: 1fr; }
   .card-featured { flex-direction: column; }
   .card-featured .card-image, .card-featured .card-content { width: 100%; }
