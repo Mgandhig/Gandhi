@@ -346,6 +346,7 @@ body {
 
 .tags {
   display: flex;
+  flex-wrap: wrap; /* CRÍTICO: Permite que las etiquetas se apilen si no caben en la pantalla de celular */
   gap: 0.5rem;
 }
 
