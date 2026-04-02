@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // PARTICLE PORTRAIT SYSTEM (Swarm Intelligence)
     const canvas = document.getElementById('particle-canvas');
     if (canvas) {
+        console.log("✅ Canvas 'particle-canvas' encontrado.");
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
         
         let particlesArray = [];
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let mouse = {
             x: null,
             y: null,
-            radius: 90 // Subido el radio de impacto sustancialmente
+            radius: 90 
         };
 
         // Escuchar el movimiento del mouse sobre el canvas
@@ -94,8 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const img = new Image();
         img.src = canvas.getAttribute('data-src');
+        console.log("🖼️ Intentando cargar imagen desde:", img.src);
 
         img.onload = function() {
+            console.log("📸 Imagen cargada con éxito. Iniciando motor de partículas...");
             // Dimensiones internas fijas en formato retrato 3:4 para alinear con el mouse matemáticamente
             canvas.width = 600;
             canvas.height = 800;
@@ -199,5 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
             init();
             animate();
         }
+
+        img.onerror = function() {
+            console.error("❌ ERROR: No se pudo cargar la imagen. Verifica que 'img/hero-portrait.png' exista en el servidor.");
+        };
+    } else {
+        console.warn("⚠️ ADVERTENCIA: No se encontró el elemento '#particle-canvas'.");
     }
 });
