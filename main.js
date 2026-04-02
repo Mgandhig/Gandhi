@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const img = new Image();
         img.src = canvas.getAttribute('data-src');
-        img.crossOrigin = "Anonymous";
 
         img.onload = function() {
             // Dimensiones internas fijas en formato retrato 3:4 para alinear con el mouse matemáticamente
