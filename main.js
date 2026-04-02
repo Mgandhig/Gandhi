@@ -68,50 +68,55 @@ document.addEventListener('DOMContentLoaded', () => {
     // PARTICLE PORTRAIT SYSTEM (Swarm Intelligence)
     const canvas = document.getElementById('particle-canvas');
     if (canvas) {
-        console.log("✅ Canvas 'particle-canvas' encontrado.");
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
         
         let particlesArray = [];
         
+        // Ajustar Canvas al 100% de la ventana
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // No reiniciamos todo aquí para evitar parpadeos, 
+            // pero si quieres que sea responsivo al 100%, puedes llamar a init()
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        
         let mouse = {
             x: null,
             y: null,
-            radius: 90 
+            radius: 120 // Un poco más grande para el lienzo total
         };
 
-        // Escuchar el movimiento del mouse sobre el canvas
-        canvas.addEventListener('mousemove', function(event) {
-            const rect = canvas.getBoundingClientRect();
-            const scaleX = canvas.width / rect.width;
-            const scaleY = canvas.height / rect.height;
-            mouse.x = (event.clientX - rect.left) * scaleX;
-            mouse.y = (event.clientY - rect.top) * scaleY;
+        // Escuchar el movimiento del mouse sobre el canvas total
+        window.addEventListener('mousemove', function(event) {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
         });
 
-        canvas.addEventListener('mouseleave', function() {
+        window.addEventListener('mouseleave', function() {
             mouse.x = null;
             mouse.y = null;
         });
 
         const img = new Image();
         img.src = canvas.getAttribute('data-src');
-        console.log("🖼️ Intentando cargar imagen desde:", img.src);
 
         img.onload = function() {
-            console.log("📸 Imagen cargada con éxito. Iniciando motor de partículas...");
-            // Dimensiones internas fijas en formato retrato 3:4 para alinear con el mouse matemáticamente
-            canvas.width = 600;
-            canvas.height = 800;
-
-            // Lógica para CENTRAR la imagen vertical y horizontalmente dentro del canvas (object-fit: contain nativo)
-            // Agregamos el multiplicador * 1.1 para crecer la imagen un 10% extra
-            const scale = Math.min(canvas.width / img.width, canvas.height / img.height) * 1.1;
+            // Lógica para posicionar el rostro en la parte DERECHA del lienzo total
+            // Queremos que ocupe aprox el 40% del ancho y 90% del alto
+            const targetAreaWidth = canvas.width * 0.45;
+            const targetAreaHeight = canvas.height * 0.95;
+            
+            const scale = Math.min(targetAreaWidth / img.width, targetAreaHeight / img.height) * 1.1;
             const drawWidth = img.width * scale;
             const drawHeight = img.height * scale;
-            const offsetX = (canvas.width - drawWidth) / 2;
-            const offsetY = (canvas.height - drawHeight) / 2;
+            
+            // Posicionamiento editorial: a la derecha con un poco de aire (margin) y ajuste de +50px
+            const offsetX = (canvas.width - drawWidth - (canvas.width * 0.05)) + 50; 
+            const offsetY = canvas.height - drawHeight; // Pegado a la base
 
-            // Dibujar la imagen de forma centrada
+            // Dibujar la imagen de forma invisible para escaneo
             ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -204,9 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         img.onerror = function() {
-            console.error("❌ ERROR: No se pudo cargar la imagen. Verifica que 'img/hero-portrait.png' exista en el servidor.");
+            // Silencioso en producción
         };
-    } else {
-        console.warn("⚠️ ADVERTENCIA: No se encontró el elemento '#particle-canvas'.");
     }
 });

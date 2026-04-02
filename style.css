@@ -160,10 +160,10 @@ body {
 /* Hero */
 .hero {
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Permitimos que las partículas "salgan" de la sección si es necesario */
   height: 100vh;
   display: flex;
-  align-items: flex-end; /* Baja todo el contenido (texto e imagen) a la base de la pantalla */
+  align-items: flex-end; /* Baja todo el contenido a la base de la pantalla */
   justify-content: space-between;
   gap: 4rem;
 }
@@ -254,14 +254,17 @@ body {
 
 /* Portrait Image Styles & Cinematic Animation */
 .portrait-real {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: contain; /* or cover depending on user preference, let's use cover to fill the 3:4 block */
-  border-radius: 4px;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
   display: block;
-  mix-blend-mode: screen; /* CRÍTICO: Elimina el fondo negro, fundiéndose 100% con tu página #11100F */
-  transform-origin: center center;
-  transition: transform 0.1s ease-out; /* Preparado para el script JS */
+  mix-blend-mode: screen; /* CRÍTICO: Elimina el fondo negro */
+  z-index: 1; /* Por detrás del texto (hero-content tiene z-index 2) */
+  pointer-events: auto; /* Para que siga recibiendo el mouse */
 }
 
 @keyframes portraitBreathe {
