@@ -122,8 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.baseY = y;
                     this.color = color;
                     this.density = (Math.random() * 20) + 1;
-                    // Tamaño escalado para ocupar más espacio sin ahogar el CPU
-                    this.size = 1.6; 
+                    this.size = 1.1; // Un poco más grandes para compensar la menor densidad
                     this.resistance = Math.random() * 0.7 + 0.3; 
                     this.wobble = Math.random() * 40 - 20; 
                 }
@@ -169,9 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function init() {
                 particlesArray = [];
-                // CRÍTICO: Devolvemos a Step 5 para evitar congelamiento de la RAM / CPU del navegador
-                // Compensado por el mayor grosor de la partícula
-                const step = 5; 
+                // STEP 3: Matemáticamente nos da unas ~40,000 partículas (200x266 puntos posibles)
+                const step = 3; 
                 
                 for (let y = 0, y2 = imageData.height; y < y2; y += step) {
                     for (let x = 0, x2 = imageData.width; x < x2; x += step) {
