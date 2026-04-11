@@ -84,10 +84,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10, 10, 10, 0.35); /* Transparencia incrementada radicalmente */
-  backdrop-filter: blur(16px); /* Aumentamos el blur para que no se pierda la legibilidad */
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-delicate);
+  background: rgba(17, 16, 15, 0.25); /* Más transparente para dejar pasar el blur */
+  backdrop-filter: blur(24px) saturate(150%); /* Blur alto + saturación estilo Apple Glass */
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Borde sutil brillante tipo cristal */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Sombra difusa para separar el cristal del fondo */
   z-index: 1000;
   transition: all 0.3s ease;
 }
