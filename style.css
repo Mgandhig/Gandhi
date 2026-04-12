@@ -84,9 +84,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(17, 16, 15, 0.25); /* Más transparente para dejar pasar el blur */
-  backdrop-filter: blur(24px) saturate(150%); /* Blur alto + saturación estilo Apple Glass */
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  background: rgba(17, 16, 15, 0.15); /* Aún más transparente para forzar al blur a hacer el peso visual */
+  backdrop-filter: blur(36px) saturate(180%); /* Blur extremo estilo Apple Vision Glass */
+  -webkit-backdrop-filter: blur(36px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Borde sutil brillante tipo cristal */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Sombra difusa para separar el cristal del fondo */
   z-index: 1000;
@@ -436,9 +436,10 @@ body {
 
 .serif-quote {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 4vw, 3.5rem); /* Reducción táctica del tamaño de fuente */
   font-weight: 400;
   z-index: 10;
+  margin-top: 9rem; /* Hundimos la frase aún más para acercarla al halo superior de la órbita */
 }
 
 .quote-author {
@@ -450,10 +451,10 @@ body {
 
 .orbit {
   position: absolute;
-  top: 50%; 
+  top: 120%;  /* Círculo profundamente enterrado hacia abajo */
   left: 50%;
-  width: 700px; /* Tamaño equilibrado, radio de 350px */
-  height: 700px;
+  width: 1000px; /* Tamaño expandido, radio de 500px */
+  height: 1000px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: none; /* Quitamos la línea punteada para dar el efecto etéreo */
@@ -483,19 +484,19 @@ body {
   animation: counter-rotate 60s linear infinite;
 }
 
-/* Position texts around circle (radio 350px) */
-.icon-1 { transform: rotate(0deg) translate(350px) rotate(0deg); }
-.icon-2 { transform: rotate(30deg) translate(350px) rotate(-30deg); }
-.icon-3 { transform: rotate(60deg) translate(350px) rotate(-60deg); }
-.icon-4 { transform: rotate(90deg) translate(350px) rotate(-90deg); }
-.icon-5 { transform: rotate(120deg) translate(350px) rotate(-120deg); }
-.icon-6 { transform: rotate(150deg) translate(350px) rotate(-150deg); }
-.icon-7 { transform: rotate(180deg) translate(350px) rotate(-180deg); }
-.icon-8 { transform: rotate(210deg) translate(350px) rotate(-210deg); }
-.icon-9 { transform: rotate(240deg) translate(350px) rotate(-240deg); }
-.icon-10 { transform: rotate(270deg) translate(350px) rotate(-270deg); }
-.icon-11 { transform: rotate(300deg) translate(350px) rotate(-300deg); }
-.icon-12 { transform: rotate(330deg) translate(350px) rotate(-330deg); }
+/* Position texts around circle (radio 500px) */
+.icon-1 { transform: rotate(0deg) translate(500px) rotate(0deg); }
+.icon-2 { transform: rotate(30deg) translate(500px) rotate(-30deg); }
+.icon-3 { transform: rotate(60deg) translate(500px) rotate(-60deg); }
+.icon-4 { transform: rotate(90deg) translate(500px) rotate(-90deg); }
+.icon-5 { transform: rotate(120deg) translate(500px) rotate(-120deg); }
+.icon-6 { transform: rotate(150deg) translate(500px) rotate(-150deg); }
+.icon-7 { transform: rotate(180deg) translate(500px) rotate(-180deg); }
+.icon-8 { transform: rotate(210deg) translate(500px) rotate(-210deg); }
+.icon-9 { transform: rotate(240deg) translate(500px) rotate(-240deg); }
+.icon-10 { transform: rotate(270deg) translate(500px) rotate(-270deg); }
+.icon-11 { transform: rotate(300deg) translate(500px) rotate(-300deg); }
+.icon-12 { transform: rotate(330deg) translate(500px) rotate(-330deg); }
 
 @keyframes rotate {
   100% { transform: translate(-50%, -50%) rotate(360deg); }

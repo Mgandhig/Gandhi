@@ -88,10 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
             radius: 120 // Un poco más grande para el lienzo total
         };
 
-        // Escuchar el movimiento del mouse sobre el canvas total
+        // Escuchar el movimiento del mouse, pero limitar su efecto a la sección del Hero
         window.addEventListener('mousemove', function(event) {
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
+            // Si el scroll ya bajó más del 100% de la pantalla, ignorar el mouse para las partículas
+            if (window.scrollY <= window.innerHeight) {
+                mouse.x = event.clientX;
+                // Sumamos scrollY para que el mouse mapee exactamente la posición incluso si has bajado un poco
+                mouse.y = event.clientY + window.scrollY; 
+            } else {
+                mouse.x = null;
+                mouse.y = null;
+            }
         });
 
         window.addEventListener('mouseleave', function() {
