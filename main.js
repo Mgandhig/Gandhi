@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.glass-nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.style.background = 'rgba(17, 16, 15, 0.95)';
-            nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            nav.style.background = 'rgba(250, 249, 246, 0.70)'; // Alabastro con más opacidad al bajar
+            nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.05)';
         } else {
-            nav.style.background = 'rgba(17, 16, 15, 0.75)';
+            nav.style.background = 'rgba(250, 249, 246, 0.35)'; // Alabastro casi transparente arriba
             nav.style.boxShadow = 'none';
         }
     });
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function init() {
                 particlesArray = [];
-                // STEP 3: Matemáticamente nos da unas ~40,000 partículas (200x266 puntos posibles)
+                // STEP 3: Balance perfecto entre alta resolución y rendimiento fluido 60 FPS
                 const step = 3; 
                 
                 for (let y = 0, y2 = imageData.height; y < y2; y += step) {
@@ -194,9 +194,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         const b = imageData.data[index+2];
                         const a = imageData.data[index+3];
 
-                        // r > 10 captura cada pequeño fantasma de luz de tu foto de alto contraste
+                        // r > 10 captura cada pequeño fantasma de luz de tu foto original
                         if (r > 10 && a > 0) { 
-                            particlesArray.push(new Particle(x, y, `rgba(${r}, ${g}, ${b}, ${a/255})`));
+                            // Transformamos mágicamente la data visual para que pinte Verde Oscuro (Oliva Oscuro)
+                            const alpha = (a / 255) * 0.9; 
+                            particlesArray.push(new Particle(x, y, `rgba(45, 60, 35, ${alpha})`));
                         }
                     }
                 }

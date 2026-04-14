@@ -1,14 +1,14 @@
 :root {
-  /* Editorial Dark/Old Money Palette */
-  --bg-color: #111111; /* Grafito suave (Otro tono sugerido) para relajación visual */
-  --bg-card: #181818;  /* Contraste orgánico muy bajo para tarjetas */
-  --bg-nav: rgba(10, 10, 10, 0.60); /* Translucidez ajustada al nuevo fondo */
+  /* Editorial Light / Wabi Sabi Palette */
+  --bg-color: #FAF9F6; /* Alabastro / Off-White más puro y fresco */
+  --bg-card:  #F2F0EB; /* Contraste ligerísimo para tarjetas (Alabastro en sombra) */
+  --bg-nav: rgba(250, 249, 246, 0.60); 
   
-  --text-main: #ECEADF; /* Alabaster / Antique White */
-  --text-muted: #9F9D96; /* Soft warm grey */
-  --accent-gold: #D4AF37; /* Muted Champagne Gold */
+  --text-main: #181818; /* Charcoal Black Puro */
+  --text-muted: #6B6A65; /* Gris cálido de lectura */
+  --accent-gold: #5E6E4C; /* Verde Medio / Oliva */
   
-  --border-delicate: rgba(236, 234, 223, 0.08);
+  --border-delicate: rgba(24, 24, 24, 0.08); /* Borde negro sutil */
 
   /* Typography */
   --font-serif: 'Playfair Display', serif;
@@ -38,9 +38,9 @@ body {
 /* Typography Utilities */
 .serif-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem); /* Texto más recatado y sutil */
+  font-size: clamp(2rem, 3.8vw, 3.2rem); /* Título más pequeño y sobrio */
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
@@ -84,11 +84,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(17, 16, 15, 0.15); /* Aún más transparente para forzar al blur a hacer el peso visual */
-  backdrop-filter: blur(36px) saturate(180%); /* Blur extremo estilo Apple Vision Glass */
-  -webkit-backdrop-filter: blur(36px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Borde sutil brillante tipo cristal */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Sombra difusa para separar el cristal del fondo */
+  background: rgba(250, 249, 246, 0.35); /* Transparente sobre alabastro */
+  backdrop-filter: blur(24px) saturate(130%); 
+  -webkit-backdrop-filter: blur(24px) saturate(130%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03); /* Sombra súper sutil en light mode */
   z-index: 1000;
   transition: all 0.3s ease;
 }
@@ -96,9 +96,21 @@ body {
 .logo {
   text-decoration: none;
   color: var(--text-main);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  font-weight: 600; /* Peso un poco más fuerte para que se sostenga bien en lowercase */
+  letter-spacing: -0.02em; /* Kerning cerrado tipo agencia tech */
+  font-size: 1.15rem; /* Un poco más grande para compensar la falta de mayúsculas */
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.logo-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-gold); /* Verde Oliva */
+  border-radius: 50%; /* Círculo perfecto */
 }
 
 .nav-links {
@@ -132,8 +144,9 @@ body {
 }
 
 .nav-cta:hover {
-  background: var(--text-main);
-  color: var(--bg-color) !important;
+  border-color: var(--accent-gold);
+  background: var(--accent-gold);
+  color: #FFFFFF !important;
 }
 
 /* Mobile Menu Toggle */
@@ -176,7 +189,7 @@ body {
   max-width: 600px;
   position: relative;
   z-index: 2;
-  padding-bottom: 6rem; /* Margen para despregar el texto del piso */
+  padding-bottom: 22vh; /* Empujado hacia arriba dramáticamente para dejar respirar a la foto */
 }
 
 .hero-desc {
@@ -212,8 +225,9 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 2rem;
+  padding: 1.1rem 2.2rem;
   border: 1px solid var(--border-delicate);
+  border-radius: 100px; /* Forma de píldora extrema */
   background: transparent;
   color: var(--text-main);
   text-decoration: none;
@@ -224,7 +238,8 @@ body {
 
 .btn-elegant:hover {
   border-color: var(--accent-gold);
-  background: rgba(212, 175, 55, 0.05); /* very soft gold */
+  background: var(--accent-gold); /* Relleno oliva al hover */
+  color: #FFFFFF; /* Texto blanco sobre oliva */
 }
 
 .btn-elegant .arrow {
@@ -263,9 +278,9 @@ body {
   object-fit: contain;
   border-radius: 0;
   display: block;
-  mix-blend-mode: screen; /* CRÍTICO: Elimina el fondo negro */
-  z-index: 1; /* Por detrás del texto (hero-content tiene z-index 2) */
-  pointer-events: auto; /* Para que siga recibiendo el mouse */
+  mix-blend-mode: multiply; /* CRÍTICO: Multiply para oscurecer sobre hueso */
+  z-index: 1; 
+  pointer-events: auto; 
 }
 
 @keyframes portraitBreathe {
@@ -296,7 +311,7 @@ body {
   color: inherit;
   background: var(--bg-card);
   border: 1px solid var(--border-delicate);
-  border-radius: 8px; /* Esquinas sutilmente redondeadas */
+  border-radius: 20px; /* Esquinas súper redondeadas */
   padding: 1.5rem;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
@@ -305,8 +320,8 @@ body {
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(236, 234, 223, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-gold); /* UX: Iluminamos el borde en Oliva, clarísimo affordance de interacción */
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06); /* Sombra elegante, ultra difusa, no plana ni pesada */
 }
 
 .card-featured {
@@ -371,12 +386,12 @@ body {
 }
 
 .tag {
-  font-size: 0.7rem;
-  padding: 4px 12px;
-  background-color: #2a2a2a;
-  color: #9F9D96;
-  border-radius: 20px;
-  border: none;
+  font-size: 0.70rem;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(24, 24, 24, 0.05); /* Tono mínimo en light mode */
+  color: var(--text-muted);
+  border-radius: 100px; /* Forma de Píldora */
+  border: 1px solid var(--border-delicate);
 }
 
 /* About me */
@@ -390,7 +405,7 @@ body {
 .sobre-mi-image {
   aspect-ratio: 3/4;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 20px; /* Bordes redondos marcados */
 }
 
 .sobre-mi-image img {
@@ -679,11 +694,11 @@ footer {
 /* Article Images */
 .article-image {
   margin: 3.5rem auto; 
-  border-radius: 6px;
+  border-radius: 20px; /* Bordes redondeados modernos */
   overflow: hidden;
-  border: 1px solid rgba(236, 234, 223, 0.1);
+  border: 1px solid var(--border-delicate);
   max-width: 260px; /* Fotos mucho más pequeñas, puramente apoyo visual */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra súper sutil clear */
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   z-index: 10;
