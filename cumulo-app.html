@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' x='40' font-family='Arial, sans-serif' font-size='85' font-weight='800' fill='%23181818' text-anchor='middle'%3Eg%3C/text%3E%3Ccircle cx='80' cy='70' r='14' fill='%235E6E4C'/%3E%3C/svg%3E">
+  <title>Cúmulo App - Estudio de Caso | Gandhi</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Case Study Specific Styles */
+    body { background-color: var(--bg-color); }
+    
+    .case-nav {
+      position: fixed;
+      top: 0; width: 100%; z-index: 1000;
+      padding: 1.5rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(250, 249, 246, 0.60); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-delicate);
+      transition: all 0.3s ease;
+    }
+    .btn-back {
+      display: flex; align-items: center; gap: 0.5rem;
+      color: var(--text-muted); text-decoration: none; font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s;
+    }
+    .btn-back:hover { color: var(--accent-gold); }
+    
+    .case-hero {
+      padding: 180px 4rem 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .case-title {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+    .case-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    
+    .case-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: left;
+      border-top: 1px solid var(--border-delicate);
+      border-bottom: 1px solid var(--border-delicate);
+      padding: 2.5rem 0;
+      margin-bottom: 4rem;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.6rem; }
+    .meta-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); }
+    .meta-value { font-size: 0.9rem; color: var(--text-main); font-weight: 300; line-height: 1.4; }
+    
+    .article-body {
+      max-width: 750px;
+      margin: 0 auto;
+      padding-bottom: 120px;
+    }
+    .article-body h2 {
+      clear: both;
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--accent-gold);
+      margin: 8rem 0 2.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+    .article-body p {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.015em;
+    }
+    .article-body strong {
+      color: var(--text-main);
+      font-weight: 400;
+    }
+    
+    .insight-quote {
+      border-left: 2px solid var(--accent-gold);
+      padding-left: 2.5rem;
+      margin: 4rem 0;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      line-height: 1.4;
+      color: var(--text-main);
+      font-style: italic;
+    }
+
+    /* Custom overrides to remove filters, tilts, and make images smaller */
+    .article-body .article-image {
+      max-width: 210px;
+      transform: none !important;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      background: var(--bg-card);
+      border: 1px solid var(--border-delicate);
+    }
+    .article-body .article-image:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+    }
+    .article-body .article-image.pull-left {
+      float: left;
+      margin: 1rem 2.5rem 1rem -4rem;
+    }
+    .article-body .article-image.pull-right {
+      float: right;
+      margin: 1rem -4rem 1rem 2.5rem;
+    }
+    .article-body .article-image img {
+      filter: none !important;
+    }
+    .article-body .article-image:hover img {
+      filter: none !important;
+    }
+
+    /* Features List Layout (Alternating left/right with reduced size) */
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 6rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+    }
+    .feature-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+    .feature-row.reverse {
+      flex-direction: row-reverse;
+    }
+    .feature-text {
+      flex: 1.3;
+      max-width: 440px;
+    }
+    .feature-text h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--text-main);
+      margin: 0.5rem 0 1.2rem 0;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+    .feature-media {
+      flex: 0.7;
+      display: flex;
+      justify-content: center;
+      max-width: 220px;
+    }
+    .feature-media .screen-shot {
+      width: 190px; /* Incremented to 190px to improve detail visibility */
+      border-radius: 16px;
+      border: 1px solid var(--border-delicate);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+      background: var(--bg-card);
+    }
+    .feature-media .screen-shot:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      border-color: var(--accent-gold);
+    }
+
+    /* Infinite Double Row Carousel (Marquee) */
+    .marquee-container {
+      overflow: hidden;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 6rem 0;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: rgba(24, 24, 24, 0.015);
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-delicate);
+      border-bottom: 1px solid var(--border-delicate);
+    }
+    /* Edge shadows for fade-out effect */
+    .marquee-container::before,
+    .marquee-container::after {
+      background: linear-gradient(to right, var(--bg-color) 0%, rgba(250, 249, 246, 0) 100%);
+      content: "";
+      height: 100%;
+      position: absolute;
+      width: 18%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-container::before {
+      left: 0;
+      top: 0;
+    }
+    .marquee-container::after {
+      right: 0;
+      top: 0;
+      transform: rotateZ(180deg);
+    }
+    .marquee-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      width: 100%;
+    }
+    .marquee-title-row {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent-gold);
+      padding-left: 4rem;
+      margin-bottom: -0.5rem;
+      font-weight: 500;
+    }
+    .marquee-row {
+      display: flex;
+      width: max-content;
+      gap: 1.5rem;
+    }
+    .marquee-row.left {
+      animation: scroll-left 45s linear infinite;
+    }
+    .marquee-row.right {
+      animation: scroll-right 45s linear infinite;
+    }
+    .marquee-row:hover {
+      animation-play-state: paused;
+    }
+    .marquee-card {
+      width: 130px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-delicate);
+      background: var(--bg-card);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease;
+    }
+    .marquee-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .marquee-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent-gold);
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* KPI / Impact Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 5rem 0;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border-delicate);
+      border-bottom: 1px solid var(--border-delicate);
+    }
+    .metric-card {
+      text-align: center;
+    }
+    .metric-number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      color: var(--accent-gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .metric-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-main);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .metric-desc {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+    
+    @media (max-width: 900px) {
+      .case-nav { padding: 1rem 2rem; }
+      .case-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .case-hero { padding: 140px 2rem 40px; }
+      .article-body { padding: 0 2rem 80px; }
+      .insight-quote { font-size: 1.4rem; padding-left: 1.5rem; }
+      .article-body .article-image.pull-left, 
+      .article-body .article-image.pull-right {
+        float: none;
+        margin: 2rem auto;
+      }
+      .feature-row, .feature-row.reverse {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        text-align: left;
+      }
+      .feature-text {
+        max-width: 100%;
+      }
+      .feature-media {
+        max-width: 100%;
+        width: 100%;
+        justify-content: center;
+      }
+      .feature-media .screen-shot {
+        width: 150px;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="case-nav">
+    <a href="index.html" class="logo">gandhi<span class="logo-dot"></span></a>
+    <a href="index.html#proyectos" class="btn-back">← Regresar</a>
+  </nav>
+
+  <main>
+    <section class="case-hero compact-hero observer-item fade-in-up">
+      <span class="eyebrow" style="margin-bottom: 1.5rem;">UX/UI Design · Habit Tracker</span>
+      <h1 class="serif-title case-title">Cúmulo App</h1>
+      <p class="case-subtitle">Una aplicación móvil de micro-ahorro diseñada para simplificar el registro de transacciones, gamificar el hábito diario y mantener metas financieras tangibles sin fricción mental.</p>
+      
+      <div class="case-meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Mi Rol</span>
+          <span class="meta-value">UX/UI Designer<br>UX Researcher</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Contexto</span>
+          <span class="meta-value">Proyecto Personal<br>Diseño de Producto Digital</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Duración</span>
+          <span class="meta-value">6 Semanas (2026)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Herramientas</span>
+          <span class="meta-value">Figma, Wireframes, User Journey, Midjourney</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="article-body">
+      <h2>La Fricción del Micro-Ahorro</h2>
+      
+      <figure class="article-image pull-right observer-item fade-in-up">
+        <img src="img/Cumulo-App/cumulo_app_mockup.png" alt="Cúmulo App Interface Mockup">
+        <figcaption style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">Mockup final de Cúmulo App.</figcaption>
+      </figure>
+
+      <p class="spacer-extra">Ahorrar es una de las metas financieras más deseadas por los jóvenes adultos, pero también una de las más abandonadas. La investigación inicial reveló que las herramientas de banca tradicionales y las apps de finanzas personales sufren del mismo problema: <strong>exigen una entrada de datos manual constante, aburrida y confusa</strong>. Esta fricción cognitiva provoca que el usuario olvide registrar sus montos y eventualmente abandone el hábito.</p>
+      
+      <div class="insight-quote">
+        "El problema no es la falta de dinero para ahorrar, sino la energía mental requerida para registrar y categorizar cada centavo diariamente."
+      </div>
+      
+      <h2>UX Research e Inmersión</h2>
+      <p class="spacer-extra">Conduje entrevistas con 12 usuarios potenciales de entre 20 y 28 años. A partir de los insights, sinteticé a una User Persona representativa, <strong>Sofía (23 años)</strong>, una recién graduada que quiere ahorrar para un iPad y un curso de especialización pero que se siente abrumada por los tecnicismos de las aplicaciones de inversión tradicionales.</p>
+
+      <h3 style="color: var(--text-main); font-weight: 500; font-family: var(--font-sans); margin-top: 3.5rem; margin-bottom: 0.5rem; font-size: 1.3rem;">Fricciones del usuario móvil actual:</h3>
+      <!-- User Flow Diagram (Puro CSS y HTML Nativo) -->
+      <div class="user-flow" style="margin-bottom: 4rem;">
+        <div class="flow-step">
+          <div class="flow-icon"><i class='bx bx-mobile-alt'></i></div>
+          <div class="flow-text">Deseo de ahorrar un excedente pequeño.</div>
+        </div>
+        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="flow-step friction">
+          <div class="flow-icon"><i class='bx bx-error-circle'></i></div>
+          <div class="flow-text">Flujo complejo: abrir banco ➔ transferir ➔ registrar.</div>
+        </div>
+        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="flow-step friction">
+          <div class="flow-icon"><i class='bx bx-block'></i></div>
+          <div class="flow-text">Olvido o pereza de categorizar centavos.</div>
+        </div>
+        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="flow-step goal">
+          <div class="flow-icon"><i class='bx bx-check-circle'></i></div>
+          <div class="flow-text">Nuestra propuesta: Registro rápido en un toque + Racha activa.</div>
+        </div>
+      </div>
+
+      <p class="spacer-extra">El Journey Map de Sofía evidenció que el "momento de dolor" principal se encuentra en los pasos redundantes para apartar dinero. La solución requería un atajo rápido, casi invisible, que permitiera apartar pequeñas cantidades de dinero con la simplicidad de enviar un mensaje de texto. Así nació el concepto de <strong>Cúmulo</strong>: acumular pequeños montos paso a paso.</p>
+
+      <h2>Arquitectura de Información e Interacción</h2>
+      
+      <figure class="article-image pull-right observer-item fade-in-up">
+        <img src="img/Cumulo-App/User Flow.png" alt="Detailed User Flow Diagram">
+        <figcaption style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">Flujo lógico de interacción.</figcaption>
+      </figure>
+
+      <p class="spacer-extra">Mientras que el flujo de empatía describe el viaje emocional, la interacción con la aplicación requería mapear de forma exhaustiva cada pantalla del sistema. Diseñé un mapa lógico de navegación que conecta la configuración inicial (onboarding) con los módulos clave: creación de metas, depósito de ahorro y ajustes de seguridad.</p>
+      
+      <p class="spacer-extra">Este mapa de interacción garantiza que el usuario nunca se encuentre en un escenario sin salida y reduce la fricción operativa al consolidar los flujos recurrentes (como añadir dinero o comprobar movimientos) en rutas rápidas directamente accesibles desde la barra de pestañas principal.</p>
+
+      <h2>Del Papel al Pixel: Proceso de Diseño</h2>
+      <p class="spacer-extra">El desarrollo de la interfaz comenzó con wireframes en papel para probar flujos rápidos. De ahí, escalé a wireframes de baja fidelidad para probar el orden de los elementos y, finalmente, a mockups de alta fidelidad en Figma. El sistema visual adoptó el lenguaje sobrio de mi portafolio: tonos alabastro limpios, tipografía legible y una paleta donde el verde oliva actúa como indicador de progreso positivo y metas cumplidas.</p>
+
+      <!-- CAROUSEL SECTION -->
+      <section class="marquee-container observer-item fade-in-up">
+        <div class="marquee-wrapper">
+          <div class="marquee-title-row">A) Pantallas de Baja Fidelidad (Wireframes conceptuales)</div>
+          <div class="marquee-row left">
+            <!-- Set 1 -->
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-OB-01-Splash.png" alt="Splash Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-OB-02-Bienvenida.png" alt="Bienvenida Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-OB-03-Registro.png" alt="Registro Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-01 - Home.png" alt="Home Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-02-CrearObjetivo.png" alt="Crear Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-03 - Detalle Objetivo.png" alt="Detalle Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-04 - Agregar Dinero.png" alt="Agregar Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-05-Exito.png" alt="Exito Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-PER-01-Perfil.png" alt="Perfil Low"></div>
+            <!-- Duplicado para loop infinito -->
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-OB-01-Splash.png" alt="Splash Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-OB-02-Bienvenida.png" alt="Bienvenida Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-OB-03-Registro.png" alt="Registro Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-01 - Home.png" alt="Home Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-02-CrearObjetivo.png" alt="Crear Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-03 - Detalle Objetivo.png" alt="Detalle Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-04 - Agregar Dinero.png" alt="Agregar Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-05-Exito.png" alt="Exito Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Low-PER-01-Perfil.png" alt="Perfil Low"></div>
+          </div>
+        </div>
+
+        <div class="marquee-wrapper">
+          <div class="marquee-title-row">B) Pantallas de Alta Fidelidad (Interfaz Pulida)</div>
+          <div class="marquee-row right">
+            <!-- Set 1 -->
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-OB-01-Splash.png" alt="Splash Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-OB-02-Bienvenida.png" alt="Bienvenida Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-OB-03-Registro.png" alt="Registro Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/HM-01 - Home.png" alt="Home Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-OBJ-01-CrearObjetivo.png" alt="Crear Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/OBJ-02 - Detalle Objetivo.png" alt="Detalle Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/MOV-01 - Agregar Dinero.png" alt="Agregar Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-MOV-03-Exito.png" alt="Exito Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-PER-01-Perfil.png" alt="Perfil Hi"></div>
+            <!-- Duplicado para loop infinito -->
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-OB-01-Splash.png" alt="Splash Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-OB-02-Bienvenida.png" alt="Bienvenida Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-OB-03-Registro.png" alt="Registro Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/HM-01 - Home.png" alt="Home Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-OBJ-01-CrearObjetivo.png" alt="Crear Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/OBJ-02 - Detalle Objetivo.png" alt="Detalle Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/MOV-01 - Agregar Dinero.png" alt="Agregar Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-MOV-03-Exito.png" alt="Exito Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-App/Hi-PER-01-Perfil.png" alt="Perfil Hi"></div>
+          </div>
+        </div>
+      </section>
+
+      <p class="spacer-extra">El carrusel doble superior muestra la correspondencia exacta entre cada etapa de diseño. La hilera superior (A) expone los wireframes conceptuales en tonos grises, diseñados para validar las jerarquías de texto y los flujos elementales. La hilera inferior (B) muestra la interfaz de alta fidelidad resuelta, donde la tipografía, los pesos visuales y los contrastes de color oliva (#5E6E4C) se integran de forma coherente.</p>
+
+      <h2>Características Clave del Producto</h2>
+
+      <ul class="features-list">
+        <!-- FEATURE 1: Text LEFT, Media RIGHT -->
+        <li class="feature-row observer-item fade-in-up">
+          <div class="feature-text">
+            <span class="eyebrow">01 / Identidad y Metas</span>
+            <h3>Foco en Objetivos Concretos</h3>
+            <p>El ahorro tradicional suele fallar por su abstracción mental. En Cúmulo, el ahorro se vincula a metas físicas y tangibles con imágenes representativas y nombres personalizados.</p>
+            <p>Diseñamos una experiencia de visualización basada en un anillo de progreso circular limpio que indica el avance porcentual y los días restantes de forma directa, eliminando las tablas complejas.</p>
+          </div>
+          <div class="feature-media">
+            <img src="img/Cumulo-App/OBJ-02 - Detalle Objetivo.png" alt="Detalle Objetivo Screen" class="screen-shot">
+          </div>
+        </li>
+
+        <!-- FEATURE 2: Media LEFT, Text RIGHT (REVERSE) -->
+        <li class="feature-row reverse observer-item fade-in-up">
+          <div class="feature-text">
+            <span class="eyebrow">02 / Interacción Inmediata</span>
+            <h3>El Botón Express</h3>
+            <p>Para registrar pequeñas cantidades de dinero sobrantes de la rutina diaria, los usuarios tradicionalmente debían teclear montos manualmente. Esto agregaba fricción en entornos de alta distracción.</p>
+            <p>Desarrollamos el Botón Express que habilita atajos con montos preestablecidos (ej. $10, $50, $100) y confirmación instantánea. Un solo tap es suficiente para apartar el dinero de forma inmediata.</p>
+          </div>
+          <div class="feature-media">
+            <img src="img/Cumulo-App/MOV-01 - Agregar Dinero.png" alt="Ahorro Express Screen" class="screen-shot">
+          </div>
+        </li>
+
+        <!-- FEATURE 3: Text LEFT, Media RIGHT -->
+        <li class="feature-row observer-item fade-in-up">
+          <div class="feature-text">
+            <span class="eyebrow">03 / Gamificación</span>
+            <h3>Rachas de Dopamina</h3>
+            <p>Tomando inspiración de las dinámicas conductuales de habituación exitosas en otras industrias, implementamos un contador de rachas ("streaks") activo en la parte superior del Dashboard de inicio.</p>
+            <p>Si el usuario registra un ahorro de forma diaria (consecutiva), el streak se mantiene activo y en aumento. Este disparador psicológico genera un compromiso diario que estimula la constancia del ahorro.</p>
+          </div>
+          <div class="feature-media">
+            <img src="img/Cumulo-App/HM-01 - Home.png" alt="Home Streak Screen" class="screen-shot">
+          </div>
+        </li>
+
+        <!-- FEATURE 4: Media LEFT, Text RIGHT (REVERSE) -->
+        <li class="feature-row reverse observer-item fade-in-up">
+          <div class="feature-text">
+            <span class="eyebrow">04 / Consistencia Visual</span>
+            <h3>Sistema de Diseño Atómico</h3>
+            <p>La sobriedad editorial de Cúmulo se sustenta en bases de diseño estructuradas. Creamos un kit de interfaz basado en tokens de espaciado, cuadrículas consistentes de 8px y un conjunto de componentes reutilizables.</p>
+            <p>Esto asegura una transición visual perfecta entre todas las pantallas de la aplicación, al mismo tiempo que agiliza el desarrollo técnico reduciendo el código redundante en la maquetación.</p>
+          </div>
+          <div class="feature-media">
+            <img src="img/Cumulo-App/Componentes.png" alt="UI Kit Components Screen" class="screen-shot">
+          </div>
+        </li>
+      </ul>
+
+      <div style="clear: both;"></div>
+
+      <!-- METRICS GRID SECTION -->
+      <section class="metrics-grid observer-item fade-in-up">
+        <div class="metric-card">
+          <div class="metric-number">65%</div>
+          <div class="metric-label">Menos Tiempo</div>
+          <div class="metric-desc">Reducción en el registro diario de transacciones frente a apps bancarias comunes.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">90%</div>
+          <div class="metric-label">Satisfacción</div>
+          <div class="metric-desc">Puntaje obtenido durante las pruebas de tareas guiadas con el prototipo final.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">88%</div>
+          <div class="metric-label">Consistencia</div>
+          <div class="metric-desc">Tasa de retención en el hábito de ahorro impulsada por el sistema de rachas.</div>
+        </div>
+      </section>
+
+      <div class="conclusion-section">
+        <h2>Impacto y Validación</h2>
+        <p class="spacer-extra">Validé el prototipo de alta fidelidad de la aplicación móvil con un grupo de 8 usuarios a través de pruebas de usabilidad de tarea guiada. Las métricas de desempeño cuantitativo demostraron que el sistema de registro express y el streak de gamificación resuelven el dolor de la entrada de datos, garantizando una adopción fluida en rutinas diarias saturadas de estímulos.</p>
+        
+        <div class="future-box observer-item fade-in-up">
+          <h3>Siguientes Pasos</h3>
+          <p>Para la Fase II, el objetivo es complementar el ecosistema mediante una <strong>plataforma web de escritorio responsiva (Cúmulo Web)</strong>, pensada para que el usuario pueda sentarse con calma a planificar metas a largo plazo y visualizar estadísticas de ahorro mensuales detalladas.</p>
+        </div>
+      </div>
+      
+      <div style="clear: both;"></div>
+    </article>
+  </main>
+  
+  <footer style="border-top: 1px solid var(--border-delicate); padding: 3rem 1.5rem; background: var(--bg-color);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; position: relative;">
+      <a href="ciclo.html" style="position: absolute; left: 0; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; opacity: 0.8;">← Ciclo</a>
+      <div class="logo">gandhi<span class="logo-dot"></span></div>
+      <a href="cumulo-web.html" style="position: absolute; right: 0; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; opacity: 0.8;">Cúmulo Web →</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
