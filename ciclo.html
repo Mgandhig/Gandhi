@@ -15,21 +15,9 @@
     /* Case Study Specific Styles */
     body { background-color: var(--bg-color); }
     
-    .case-nav {
-      position: fixed;
-      top: 0; width: 100%; z-index: 1000;
-      padding: 1.5rem 4rem;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(250, 249, 246, 0.60); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-delicate);
-      transition: all 0.3s ease;
-    }
-    .btn-back {
-      display: flex; align-items: center; gap: 0.5rem;
-      color: var(--text-muted); text-decoration: none; font-size: 0.75rem;
-      text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s;
-    }
-    .btn-back:hover { color: var(--accent-gold); }
+    
+    
+    
     
     .case-hero {
       padding: 180px 4rem 40px;
@@ -125,7 +113,7 @@
     }
 
     @media (max-width: 900px) {
-      .case-nav { padding: 1rem 2rem; }
+      
       .case-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
       .case-hero { padding: 140px 2rem 40px; }
       .article-body { padding: 0 2rem 80px; }
@@ -135,10 +123,18 @@
   </style>
 </head>
 <body>
-  <nav class="case-nav">
+    <nav class="glass-nav">
     <a href="index.html" class="logo">gandhi<span class="logo-dot"></span></a>
-    <ul style="list-style:none; margin:0; padding:0;">
-      <li><a href="index.html#proyectos" class="btn-back">&larr; VOLVER AL PORTAL</a></li>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#inicio">Inicio</a></li>
+      <li><a href="index.html#proyectos">Proyectos</a></li>
+      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a href="contacto.html" class="nav-cta">Let's Work</a></li>
     </ul>
   </nav>
 

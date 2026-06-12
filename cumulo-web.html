@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' x='40' font-family='Arial, sans-serif' font-size='85' font-weight='800' fill='%23181818' text-anchor='middle'%3Eg%3C/text%3E%3Ccircle cx='80' cy='70' r='14' fill='%235E6E4C'/%3E%3C/svg%3E">
+  <title>Cúmulo Web - Estudio de Caso | Gandhi</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Case Study Specific Styles */
+    body { background-color: var(--bg-color); }
+    
+    
+    
+    
+    
+    .case-hero {
+      padding: 180px 4rem 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .case-title {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+    .case-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    
+    .case-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: left;
+      border-top: 1px solid var(--border-delicate);
+      border-bottom: 1px solid var(--border-delicate);
+      padding: 2.5rem 0;
+      margin-bottom: 4rem;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.6rem; }
+    .meta-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); }
+    .meta-value { font-size: 0.9rem; color: var(--text-main); font-weight: 300; line-height: 1.4; }
+    
+    .article-body {
+      max-width: 750px;
+      margin: 0 auto;
+      padding-bottom: 120px;
+    }
+    .article-body h2 {
+      clear: both;
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--accent-gold);
+      margin: 8rem 0 2.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+    .article-body p {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.015em;
+    }
+    .article-body strong {
+      color: var(--text-main);
+      font-weight: 400;
+    }
+    
+    .insight-quote {
+      border-left: 2px solid var(--accent-gold);
+      padding-left: 2.5rem;
+      margin: 4rem 0;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      line-height: 1.4;
+      color: var(--text-main);
+      font-style: italic;
+    }
+
+    /* Custom overrides to remove filters, tilts, and adjust size for web screenshots */
+    .article-body .article-image {
+      max-width: 320px; /* Un poco más anchas para pantallas de escritorio */
+      transform: none !important;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      background: var(--bg-card);
+      border: 1px solid var(--border-delicate);
+    }
+    .article-body .article-image:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+    }
+    .article-body .article-image.pull-left {
+      float: left;
+      margin: 1.5rem 2.5rem 1.5rem -6rem; /* Un poco más de aire */
+    }
+    .article-body .article-image.pull-right {
+      float: right;
+      margin: 1.5rem -6rem 1.5rem 2.5rem;
+    }
+    .article-body .article-image img {
+      filter: none !important;
+    }
+    .article-body .article-image:hover img {
+      filter: none !important;
+    }
+    
+    @media (max-width: 900px) {
+      
+      .case-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .case-hero { padding: 140px 2rem 40px; }
+      .article-body { padding: 0 2rem 80px; }
+      .insight-quote { font-size: 1.4rem; padding-left: 1.5rem; }
+      .article-body .article-image.pull-left, 
+      .article-body .article-image.pull-right {
+        float: none;
+        margin: 2rem auto;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+    <nav class="glass-nav">
+    <a href="index.html" class="logo">gandhi<span class="logo-dot"></span></a>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#inicio">Inicio</a></li>
+      <li><a href="index.html#proyectos">Proyectos</a></li>
+      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a href="contacto.html" class="nav-cta">Let's Work</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="case-hero compact-hero observer-item fade-in-up">
+      <span class="eyebrow" style="margin-bottom: 1.5rem;">Web Application · Financial Analytics</span>
+      <h1 class="serif-title case-title">Cúmulo Web</h1>
+      <p class="case-subtitle">Una plataforma de escritorio que lleva el ecosistema Cúmulo a la pantalla grande, eliminando la fricción del cambio de dispositivo y permitiendo que el ahorro se integre al flujo de trabajo diario.</p>
+      
+      <div class="case-meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Mi Rol</span>
+          <span class="meta-value">Information Architect<br>UI/UX Designer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Contexto</span>
+          <span class="meta-value">Proyecto Personal<br>Diseño de Producto Digital</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Duración</span>
+          <span class="meta-value">6 Semanas (2026)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Herramientas</span>
+          <span class="meta-value">Figma, Sitemap, User Flow, Midjourney</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="article-body">
+      <h2>El Ecosistema Completo en una Sola Vista</h2>
+
+      <figure class="article-image pull-left observer-item fade-in-up">
+        <img src="img/Cumulo-Web/cumulo_web_mockup.png" alt="Cúmulo Web Dashboard Mockup">
+        <figcaption style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">Mockup final del Dashboard en escritorio.</figcaption>
+      </figure>
+
+      <p class="spacer-extra">La app móvil de Cúmulo resuelve el registro rápido en contextos de movimiento. Pero existía una pregunta sin responder: <strong>¿qué pasa cuando el usuario quiere ver el panorama completo de sus finanzas?</strong> En el móvil, esa visión llega fragmentada — una pantalla a la vez. La plataforma web nació para cerrar esa brecha: un espacio donde el ecosistema Cúmulo cobra sentido de forma simultánea y completa.</p>
+
+      <div class="insight-quote" style="clear: both;">
+        "La pantalla grande no es solo más espacio. Es el lugar donde el usuario deja de navegar y empieza a entender."
+      </div>
+
+      <h2>El Problema de Diseño</h2>
+
+      <p class="spacer-extra">Usuarios cercanos a los 30 años — estudiantes avanzados, profesionistas y personas en ambas situaciones — pasan la mayor parte de su jornada frente a una computadora. Sin embargo, para gestionar sus ahorros seguían recurriendo al celular, cambiando de dispositivo y perdiendo contexto en el proceso. <strong>La fricción no estaba en el producto, estaba en el cambio de pantalla.</strong></p>
+
+      <p class="spacer-extra">La hipótesis de diseño fue directa: si el usuario ya tiene la computadora abierta, llevar Cúmulo a ese entorno elimina la interrupción y permite completar múltiples tareas financieras en una sola sesión, sin salir del flujo de trabajo.</p>
+
+      <h2>Investigación y Muestra</h2>
+
+      <h3 style="color: var(--text-main); font-weight: 500; font-family: var(--font-sans); margin-top: 3.5rem; margin-bottom: 0.5rem; font-size: 1.3rem;">Perfil de la muestra:</h3>
+      <div class="user-flow" style="margin-bottom: 4rem;">
+        <div class="flow-step">
+          <div class="flow-icon"><i class='bx bx-book-open'></i></div>
+          <div class="flow-text">Estudiantes de licenciatura.</div>
+        </div>
+        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="flow-step">
+          <div class="flow-icon"><i class='bx bx-briefcase'></i></div>
+          <div class="flow-text">Adultos con empleo activo.</div>
+        </div>
+        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+        <div class="flow-step goal">
+          <div class="flow-icon"><i class='bx bx-laptop'></i></div>
+          <div class="flow-text">Personas en ambas situaciones. 33 participantes, 20–28 años.</div>
+        </div>
+      </div>
+
+      <p class="spacer-extra">Las sesiones de prueba se realizaron directamente en escritorio, replicando el entorno real de uso: zonas de trabajo, estaciones de creación de contenido digital y espacios de estudio con monitor. El prototipo fue evaluado en contextos donde la computadora ya era la herramienta principal del día.</p>
+
+      <p class="spacer-extra">Un hallazgo clave emergió rápidamente durante las pruebas: <strong>al ver todas las metas, movimientos y progreso en una sola pantalla, los usuarios orientaban su atención de forma natural</strong>, sin necesidad de instrucciones. La jerarquía visual del dashboard funcionaba como mapa cognitivo — algo imposible de replicar en el formato móvil.</p>
+
+      <h2>Decisiones de Diseño</h2>
+
+      <p class="spacer-extra">El reto principal no fue agregar funciones, sino <strong>decidir qué mostrar simultáneamente sin generar sobrecarga</strong>. Las interfaces financieras tienden a saturar con tablas, cifras y gráficos compitiendo en el mismo nivel de jerarquía. En Cúmulo Web tomé tres decisiones de diseño para evitarlo:</p>
+
+      <ol class="numbered-list">
+        <li><strong>Visión global siempre visible:</strong> El dashboard principal muestra el resumen de todas las metas activas, el progreso acumulado y los movimientos recientes sin necesidad de navegar entre secciones. El usuario comprende su situación financiera al primer vistazo.</li>
+        <li><strong>Visualización de datos sobria:</strong> Gráficos de línea y barras en tonos oliva con amplias zonas de aire. El objetivo es comunicar tendencias, no abrumar con números individuales. El diseño habla de dirección, no de exactitud.</li>
+        <li><strong>Multitarea sin fricción:</strong> El layout permite revisar el progreso de una meta, crear una nueva y consultar el historial en la misma sesión, sin perder el contexto de dónde está el usuario dentro del sistema.</li>
+      </ol>
+
+      <div class="insight-quote">
+        "Cuando el usuario ve todo junto, deja de administrar y empieza a planear."
+      </div>
+
+      <h2>Proceso: De Baja a Alta Fidelidad</h2>
+
+      <figure class="article-image pull-right observer-item fade-in-up">
+        <img src="img/Cumulo-Web/cumulo_web_lofi.png" alt="Wireframes de baja fidelidad Cúmulo Web">
+        <figcaption style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">Wireframes de baja fidelidad.</figcaption>
+      </figure>
+
+      <p class="spacer-extra">El proceso siguió la misma metodología que la app móvil: wireframes de baja fidelidad para validar la arquitectura de información, iteraciones intermedias para afinar la jerarquía visual y un prototipo de alta fidelidad para las pruebas con usuarios reales.</p>
+
+      <p class="spacer-extra">La transición de baja a alta fidelidad reveló un problema de densidad: en los primeros wireframes, el dashboard intentaba mostrar demasiado. Las pruebas intermedias con 8 usuarios confirmaron que <strong>reducir los módulos visibles al mismo tiempo aumentaba la comprensión sin sacrificar información</strong>. El sistema colapsable por secciones fue la solución.</p>
+
+      <div class="conclusion-section">
+        <h2>Resultados</h2>
+
+        <p class="spacer-extra">Las pruebas de usabilidad con <strong>33 participantes entre 20 y 28 años</strong> arrojaron resultados que superaron las métricas de la versión móvil en dos dimensiones clave:</p>
+
+        <ol class="numbered-list">
+          <li><strong>70% de reducción en tiempo de registro</strong> de movimientos y configuración de metas — 5 puntos por encima del resultado en la app móvil, explicado por la mayor superficie visual y la eliminación del cambio de dispositivo.</li>
+          <li><strong>93% de consistencia en el hábito de ahorro</strong> — los usuarios que accedieron a Cúmulo Web desde su entorno de trabajo mantuvieron el registro activo de forma continua, impulsados por la presencia constante de la plataforma en su flujo de trabajo diario.</li>
+          <li><strong>90% de satisfacción general</strong>, consistente con la app móvil, confirmando que la identidad visual y la lógica del sistema se transfirieron de forma coherente entre plataformas.</li>
+        </ol>
+
+        <p class="spacer-extra">El hallazgo más significativo no fue cuantitativo: <strong>los usuarios dejaron de describir la gestión financiera como una tarea separada</strong>. Al estar Cúmulo en el mismo entorno donde trabajan y crean, el ahorro se integró como parte natural de la jornada.</p>
+
+        <div class="future-box observer-item fade-in-up">
+          <h3>Siguiente Fase del Ecosistema</h3>
+          <p>La Fase III contempla la integración con APIs bancarias mediante Open Banking para eliminar el registro manual por completo. El sistema funcionaría en segundo plano, actualizando el progreso de metas de forma automática y notificando a la app móvil cuando se alcancen hitos relevantes — cerrando el ciclo entre la acción inmediata del móvil y la planificación de la web.</p>
+        </div>
+      </div>
+
+      <div style="clear: both;"></div>
+    </article>
+  </main>
+  
+  <footer style="border-top: 1px solid var(--border-delicate); padding: 3rem 1.5rem; background: var(--bg-color);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; position: relative;">
+      <a href="cumulo-app.html" style="position: absolute; left: 0; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; opacity: 0.8;">← Cúmulo App</a>
+      <div class="logo">gandhi<span class="logo-dot"></span></div>
+      <a href="curario.html" style="position: absolute; right: 0; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; opacity: 0.8;">Curario →</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

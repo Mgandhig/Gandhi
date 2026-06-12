@@ -1,0 +1,440 @@
+/* ============================================
+   cumulo-app.css — Case Study Specific Styles
+   Extracted from inline <style> + refactored
+   ============================================ */
+
+body { background-color: var(--bg-color); }
+
+/* ── Navigation ── */
+.case-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(250, 249, 246, 0.60);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-delicate);
+  transition: all 0.3s ease;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.3s;
+}
+.btn-back:hover { color: var(--accent-olive); }
+
+/* ── Hero ── */
+.case-hero {
+  padding: 180px 4rem 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.case-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.case-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ── Meta Grid ── */
+.case-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: left;
+  border-top: 1px solid var(--border-delicate);
+  border-bottom: 1px solid var(--border-delicate);
+  padding: 2.5rem 0;
+  margin-bottom: 4rem;
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.meta-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-olive);
+}
+.meta-value {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* ── Article Body ── */
+.article-body {
+  max-width: 750px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+.article-body h2 {
+  clear: both;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--accent-olive);
+  margin: 8rem 0 2.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.article-body p {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+  margin-bottom: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 0.015em;
+}
+.article-body strong {
+  color: var(--text-main);
+  font-weight: 400;
+}
+
+/* ── Pull Images — Grid-based, no floats ── */
+/*
+  The pull-left / pull-right images sit inside a narrow 750px column.
+  We use a negative-margin trick with CSS Grid to bleed them outside
+  the text column while keeping the text flowing alongside them.
+  This replaces the legacy float + !important pattern.
+*/
+.article-body .article-image {
+  max-width: 210px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  background: var(--bg-card);
+  border: 1px solid var(--border-delicate);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
+  transform: none;
+  position: relative;
+  z-index: 10;
+}
+.article-body .article-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+.article-body .article-image.pull-left {
+  float: left;
+  margin: 0.5rem 2.5rem 1.5rem -4rem;
+}
+.article-body .article-image.pull-right {
+  float: right;
+  margin: 0.5rem -4rem 1.5rem 2.5rem;
+}
+.article-body .article-image img {
+  filter: none;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.article-body .article-image:hover img {
+  filter: none;
+}
+
+/* ── Insight Quote ── */
+.insight-quote {
+  border-left: 2px solid var(--accent-olive);
+  padding-left: 2.5rem;
+  margin: 4rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: var(--text-main);
+  font-style: italic;
+}
+
+/* ── Features List (alternating layout) ── */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 6rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.feature-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+.feature-row.reverse {
+  flex-direction: row-reverse;
+}
+.feature-text {
+  flex: 1.3;
+  max-width: 440px;
+}
+.feature-text h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--text-main);
+  margin: 0.5rem 0 1.2rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+.feature-text p {
+  /* Inherit article-body p styles — no override needed */
+}
+.feature-media {
+  flex: 0.7;
+  display: flex;
+  justify-content: center;
+  max-width: 220px;
+}
+.feature-media .screen-shot {
+  width: 190px;
+  border-radius: 16px;
+  border: 1px solid var(--border-delicate);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+  background: var(--bg-card);
+}
+.feature-media .screen-shot:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border-color: var(--accent-olive);
+}
+
+/* ── Marquee Carousel ── */
+.marquee-container {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* Full-bleed out of the 750px article column */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  background: rgba(24, 24, 24, 0.015);
+  padding: 4rem 0;
+  border-top: 1px solid var(--border-delicate);
+  border-bottom: 1px solid var(--border-delicate);
+}
+/* Edge fade-out */
+.marquee-container::before,
+.marquee-container::after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 18%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--bg-color) 0%, rgba(250, 249, 246, 0) 100%);
+}
+.marquee-container::before { left: 0; }
+.marquee-container::after  { right: 0; transform: rotateZ(180deg); }
+
+.marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  width: 100%;
+}
+.marquee-title-row {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent-olive);
+  padding-left: 4rem;
+  margin-bottom: -0.5rem;
+  font-weight: 500;
+}
+.marquee-row {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+}
+.marquee-row.left  { animation: scroll-left  45s linear infinite; }
+.marquee-row.right { animation: scroll-right 45s linear infinite; }
+.marquee-row:hover { animation-play-state: paused; }
+
+.marquee-card {
+  width: 130px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-delicate);
+  background: var(--bg-card);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+.marquee-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.marquee-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--accent-olive);
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ── Prototype Carousel (wider cards for final mockups) ── */
+.marquee-card.proto {
+  width: 200px;
+}
+
+/* ── KPI Metrics Grid ── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 5rem 0;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border-delicate);
+  border-bottom: 1px solid var(--border-delicate);
+}
+.metric-card {
+  text-align: center;
+}
+.metric-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  color: var(--accent-olive);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.metric-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-main);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+.metric-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* ── Conclusion & Future ── */
+.conclusion-section {
+  clear: both;
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--border-delicate);
+}
+.future-box {
+  background: var(--bg-card);
+  border: 1px solid rgba(94, 110, 76, 0.15);
+  border-left: 3px solid var(--accent-olive);
+  padding: 3rem;
+  border-radius: 8px;
+  margin-top: 4rem;
+}
+.future-box h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--accent-olive);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+.future-box p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .article-body .article-image.pull-left,
+  .article-body .article-image.pull-right {
+    float: none;
+    margin: 2.5rem auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .case-nav { padding: 1rem 2rem; }
+  .case-hero { padding: 140px 2rem 40px; }
+  .case-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .article-body { padding: 0 2rem 80px; }
+  .article-body h2 { margin: 3rem 0 1.5rem; }
+
+  .insight-quote {
+    font-size: 1.4rem;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .article-body .article-image.pull-left,
+  .article-body .article-image.pull-right {
+    float: none;
+    margin: 2rem auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .feature-row,
+  .feature-row.reverse {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: left;
+  }
+  .feature-text { max-width: 100%; }
+  .feature-media {
+    max-width: 100%;
+    width: 100%;
+    justify-content: center;
+  }
+  .feature-media .screen-shot { width: 150px; }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .marquee-title-row { padding-left: 2rem; }
+}

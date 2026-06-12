@@ -11,7 +11,7 @@
   --border-delicate: rgba(24, 24, 24, 0.08); /* Borde negro sutil */
 
   /* Typography */
-  --font-serif: 'Playfair Display', serif;
+  --font-serif: 'Inter', sans-serif;
   --font-sans: 'Inter', sans-serif;
 }
 
@@ -37,11 +37,11 @@ body {
 
 /* Typography Utilities */
 .serif-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.8vw, 3.2rem); /* Título más pequeño y sobrio */
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .serif-subtitle {
@@ -54,14 +54,16 @@ body {
 }
 
 .serif-card-title {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
   font-weight: 400;
+  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
 }
 
 .italic {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 300;
   color: var(--accent-gold);
 }
 
@@ -171,13 +173,18 @@ body {
   margin: 0 auto;
 }
 
+/* Proyectos: más aire abajo para separar visualmente de sobre-mí */
+.proyectos.section-padding {
+  padding-bottom: 140px;
+}
+
 /* Hero */
 .hero {
   position: relative;
-  overflow: visible; /* Permitimos que las partículas "salgan" de la sección si es necesario */
+  overflow: visible;
   height: 100vh;
   display: flex;
-  align-items: flex-end; /* Baja todo el contenido a la base de la pantalla */
+  align-items: flex-end;
   justify-content: space-between;
   gap: 4rem;
 }
@@ -189,7 +196,7 @@ body {
   max-width: 600px;
   position: relative;
   z-index: 2;
-  padding-bottom: 22vh; /* Empujado hacia arriba dramáticamente para dejar respirar a la foto */
+  padding-bottom: 22vh;
 }
 
 .hero-desc {
@@ -300,47 +307,83 @@ body {
   margin-top: 1rem;
 }
 
+/* ── GRID EDITORIAL ── */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 2rem 3rem;
 }
 
+/* Card base — sin borde, sin fondo */
 .card {
   text-decoration: none;
   color: inherit;
-  background: var(--bg-card);
-  border: 1px solid var(--border-delicate);
-  border-radius: 20px; /* Esquinas súper redondeadas */
-  padding: 1.5rem;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: opacity 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  border-color: var(--accent-gold); /* UX: Iluminamos el borde en Oliva, clarísimo affordance de interacción */
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06); /* Sombra elegante, ultra difusa, no plana ni pesada */
+  opacity: 1;
+  transform: none;
+  box-shadow: none;
 }
 
+/* Featured: ocupa todo el ancho */
 .card-featured {
   grid-column: 1 / -1;
-  flex-direction: row;
-  align-items: center;
-  gap: 3rem;
-  padding: 2rem;
+  flex-direction: column;
+  margin-bottom: 0;
 }
 
+/* Imagen */
 .card-image {
   width: 100%;
-  height: 280px;
+  height: 260px;
+  aspect-ratio: unset;
   overflow: hidden;
+  position: relative;
 }
 
 .card-featured .card-image {
-  width: 60%;
-  height: 400px;
+  width: 100%;
+  height: 260px;
+  aspect-ratio: unset;
+  min-height: auto;
+}
+
+/* Overlay en hover */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.72);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.4rem 1.6rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  backdrop-filter: blur(2px);
+}
+
+.card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-overlay .card-category {
+  color: rgba(250, 249, 246, 0.6);
+  margin-bottom: 0.3rem;
+}
+
+.card-overlay .serif-card-title {
+  color: #FAF9F6;
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 .card-image img {
@@ -351,32 +394,17 @@ body {
 }
 
 .card:hover .card-image img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
+/* Texto debajo — eliminado, ahora todo va en overlay */
 .card-content {
-  padding-top: 1.5rem;
+  display: none;
 }
 
-.card-featured .card-content {
-  padding-top: 0;
-  width: 40%;
-}
-
-.card-category {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent-gold); /* Título superior en amarillo */
-  display: block;
-  margin-bottom: 0.8rem;
-}
-
-.card-content p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-  font-weight: 300;
+/* Título más pequeño en cards secundarias */
+.card:not(.card-featured) .serif-card-title {
+  font-size: 1.1rem;
 }
 
 .tags {
@@ -394,41 +422,137 @@ body {
   border: 1px solid var(--border-delicate);
 }
 
+/* Card Outcome */
+.card-outcome {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--accent-gold);
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+}
+
 /* About me */
+.sobre-mi {
+  background-color: #111111;
+  color: #FAF9F6;
+  width: 100%;
+  max-width: 100%;
+}
+
+.sobre-mi.section-padding {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .sobre-mi-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: center;
+  grid-template-columns: 55% 45%;
+  gap: 0;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.sobre-mi-content {
+  order: 1;
+  padding-right: 5rem;
+  padding-top: 0;
 }
 
 .sobre-mi-image {
-  aspect-ratio: 3/4;
+  order: 2;
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
   overflow: hidden;
-  border-radius: 20px; /* Bordes redondos marcados */
+  border-radius: 0;
+  align-self: stretch;
+  background-color: #111111;
 }
 
 .sobre-mi-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(30%);
+  object-position: top center;
+  filter: grayscale(100%);
+  mix-blend-mode: luminosity;
+}
+
+/* Título enorme sans-serif ligero */
+.sobre-mi-title {
+  font-family: var(--font-sans);
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #FAF9F6;
+  margin-bottom: 2.5rem;
 }
 
 .sobre-mi-content p {
-  color: var(--text-muted);
-  font-size: 1.05rem;
+  color: rgba(250, 249, 246, 0.45);
+  font-size: 0.95rem;
   margin-bottom: 1.5rem;
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+/* Skills: dos cajitas lado a lado */
+.skills-editorial {
+  margin-top: 4rem;
+  padding-top: 0;
+  border-top: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  max-width: 520px;
+}
+
+.skill-line {
+  border: 1px solid rgba(250, 249, 246, 0.10);
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sobre-mi .eyebrow {
+  color: var(--accent-gold);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.sobre-mi .skill-list {
+  color: rgba(250, 249, 246, 0.60);
+  font-size: 0.85rem;
+  line-height: 1.5;
   font-weight: 300;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+.skills-editorial {
   margin-top: 3rem;
   padding-top: 3rem;
   border-top: 1px solid var(--border-delicate);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 /* Orbital */
@@ -586,12 +710,13 @@ footer {
   .hero { flex-direction: column; justify-content: flex-start; align-items: flex-start; text-align: left; gap: 2rem; padding-top: 100px; }
   .hero-content { margin: 0; width: 100%; }
   .hero-image { max-width: 220px; margin: 0; width: 100%; display: block; align-self: flex-start; }
-  .grid { grid-template-columns: 1fr; }
-  .card-featured { flex-direction: column; }
-  .card-featured .card-image, .card-featured .card-content { width: 100%; }
-  .sobre-mi-inner { grid-template-columns: 1fr; gap: 3rem; text-align: left; justify-items: flex-start; }
-  .sobre-mi-content { margin: 0; width: 100%; }
-  .sobre-mi-image { max-width: 220px; margin: 0; width: 100%; display: block; align-self: flex-start; }
+  .grid { grid-template-columns: 1fr; gap: 0.5rem; }
+  .card-featured { margin-bottom: 1rem; }
+  .card-image, .card-featured .card-image { aspect-ratio: 4/3; }
+  .sobre-mi-inner { grid-template-columns: 1fr; gap: 0; }
+  .sobre-mi-content { padding-right: 0; padding-bottom: 2.5rem; }
+  .sobre-mi-image { min-height: 380px; width: 100%; }
+  .skills-editorial { grid-template-columns: 1fr; max-width: 100%; }
   .orbital-section { overflow: hidden; padding: 100px 0; }
   .orbit { width: 220px; height: 220px; top: 50%; } /* Radios a 110px en móvil */
   .software-icon { font-size: 0.65rem; }
@@ -615,24 +740,17 @@ footer {
   .glass-nav { padding: 1rem 2rem; }
 }
 
-.sobre-mi-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
+.skill-line .eyebrow {
+  margin-bottom: 0.4rem;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-top: 3rem;
-  padding-top: 3rem;
-  border-top: 1px solid var(--border-delicate);
-}
-
-.skill-category .eyebrow {
-  margin-bottom: 0.5rem;
+.skill-list {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  margin: 0;
 }
 
 /* User Flow Diagram */

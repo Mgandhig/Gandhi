@@ -73,13 +73,21 @@ document.addEventListener('DOMContentLoaded', () => {
         let particlesArray = [];
         
         // Ajustar Canvas al 100% de la ventana
+        // Debounce: espera 300ms tras el último evento resize antes de reiniciar
+        // las partículas, evitando tanto el parpadeo como las posiciones incorrectas.
+        let resizeTimer;
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            // No reiniciamos todo aquí para evitar parpadeos, 
-            // pero si quieres que sea responsivo al 100%, puedes llamar a init()
         }
-        window.addEventListener('resize', resizeCanvas);
+        function onResize() {
+            resizeCanvas();
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (typeof init === 'function') init();
+            }, 300);
+        }
+        window.addEventListener('resize', onResize);
         resizeCanvas();
         
         let mouse = {
