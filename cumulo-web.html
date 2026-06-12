@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -147,6 +147,15 @@
     .article-body .article-image:hover img {
       filter: none !important;
     }
+
+    .article-body .marquee-card {
+      width: 285px;
+      border-radius: 14px;
+    }
+
+    .article-body .marquee-row {
+      gap: 2rem;
+    }
     
     @media (max-width: 900px) {
       
@@ -159,6 +168,10 @@
         float: none;
         margin: 2rem auto;
         max-width: 100%;
+      }
+
+      .article-body .marquee-card {
+        width: 225px;
       }
     }
   </style>
@@ -183,7 +196,7 @@
     <section class="case-hero compact-hero observer-item fade-in-up">
       <span class="eyebrow" style="margin-bottom: 1.5rem;">Web Application · Financial Analytics</span>
       <h1 class="serif-title case-title">Cúmulo Web</h1>
-      <p class="case-subtitle">Una plataforma de escritorio que lleva el ecosistema Cúmulo a la pantalla grande, eliminando la fricción del cambio de dispositivo y permitiendo que el ahorro se integre al flujo de trabajo diario.</p>
+      <p class="case-subtitle">La extensión de escritorio de Cúmulo App: una plataforma que conserva la lógica móvil de metas, rachas y movimientos rápidos, pero la expande a una vista de planificación completa para sesiones de trabajo más largas.</p>
       
       <div class="case-meta-grid">
         <div class="meta-item">
@@ -209,11 +222,11 @@
       <h2>El Ecosistema Completo en una Sola Vista</h2>
 
       <figure class="article-image pull-left observer-item fade-in-up" style="position: relative;">
-        <img src="img/Cumulo-Web/hf_dashboard.png" alt="Cúmulo Web Dashboard Alta Fidelidad">
+        <img src="img/Cumulo-Web/cumulo_web_mockup.png" alt="Cúmulo Web Dashboard Mockup">
         <div class="img-overlay"><span>Dashboard — Alta fidelidad</span></div>
       </figure>
 
-      <p class="spacer-extra">La app móvil de Cúmulo resuelve el registro rápido en contextos de movimiento. Pero existía una pregunta sin responder: <strong>¿qué pasa cuando el usuario quiere ver el panorama completo de sus finanzas?</strong> En el móvil, esa visión llega fragmentada — una pantalla a la vez. La plataforma web nació para cerrar esa brecha: un espacio donde el ecosistema Cúmulo cobra sentido de forma simultánea y completa.</p>
+      <p class="spacer-extra">Cúmulo App resuelve el hábito diario: registrar dinero rápido, mantener rachas y avanzar metas desde el celular. Cúmulo Web parte de esa misma arquitectura, pero responde una pregunta distinta: <strong>¿qué pasa cuando el usuario quiere ver el panorama completo de sus finanzas?</strong> En móvil, esa visión llega fragmentada — una pantalla a la vez. La web nació para cerrar esa brecha sin reemplazar a la app: convierte el mismo sistema en un espacio de análisis, comparación y planificación.</p>
 
       <div class="insight-quote" style="clear: both;">
         "La pantalla grande no es solo más espacio. Es el lugar donde el usuario deja de navegar y empieza a entender."
@@ -221,9 +234,9 @@
 
       <h2>El Problema de Diseño</h2>
 
-      <p class="spacer-extra">Usuarios cercanos a los 30 años — estudiantes avanzados, profesionistas y personas en ambas situaciones — pasan la mayor parte de su jornada frente a una computadora. Sin embargo, para gestionar sus ahorros seguían recurriendo al celular, cambiando de dispositivo y perdiendo contexto en el proceso. <strong>La fricción no estaba en el producto, estaba en el cambio de pantalla.</strong></p>
+      <p class="spacer-extra">Usuarios cercanos a los 30 años — estudiantes avanzados, profesionistas y personas en ambas situaciones — pasan la mayor parte de su jornada frente a una computadora. La app móvil funcionaba bien para capturar acciones pequeñas, pero cuando querían comparar metas, revisar historial o entender patrones de ahorro, tenían que cambiar de dispositivo y reconstruir contexto. <strong>La fricción no estaba en el producto, estaba en el cambio de pantalla y en la falta de una vista sistémica.</strong></p>
 
-      <p class="spacer-extra">La hipótesis de diseño fue directa: si el usuario ya tiene la computadora abierta, llevar Cúmulo a ese entorno elimina la interrupción y permite completar múltiples tareas financieras en una sola sesión, sin salir del flujo de trabajo.</p>
+      <p class="spacer-extra">La hipótesis de diseño fue directa: si el usuario ya tiene la computadora abierta, llevar Cúmulo a ese entorno elimina la interrupción y permite completar múltiples tareas financieras en una sola sesión. La app queda como punto de acción inmediata; la web funciona como centro de control para decidir, ordenar y entender.</p>
 
       <h2>Investigación y Muestra</h2>
 
@@ -251,49 +264,49 @@
 
       <h2>Proceso: De Baja a Alta Fidelidad</h2>
 
-      <p class="spacer-extra">El proceso siguió la misma metodología que la app móvil: wireframes de baja fidelidad para validar la arquitectura de información, iteraciones intermedias para afinar la jerarquía visual y un prototipo de alta fidelidad para las pruebas con usuarios reales. La transición entre etapas reveló que <strong>reducir los módulos visibles simultáneamente aumentaba la comprensión sin sacrificar información</strong>.</p>
+      <p class="spacer-extra">El proceso tomó como base los aprendizajes de Cúmulo App: el usuario entiende mejor cuando la meta es concreta, el movimiento es inmediato y el progreso tiene una recompensa visible. A partir de esa lógica, la web reorganizó la información en módulos de escritorio: metas activas, movimientos recientes, comunidad, proyección y estado de cuenta. La transición entre baja y alta fidelidad reveló que <strong>mostrar la información en bloques simultáneos aumentaba la comprensión solo cuando cada módulo conservaba una jerarquía clara heredada de la app</strong>.</p>
 
       <!-- CARRUSEL DOBLE: Baja + Alta fidelidad -->
       <section class="marquee-container observer-item fade-in-up">
         <div class="marquee-wrapper">
           <div class="marquee-title-row">A) Pantallas de Baja Fidelidad (Wireframes conceptuales)</div>
           <div class="marquee-row left">
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_dashboard.png" alt="Dashboard Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_objetivos.png" alt="Objetivos Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_detalle.png" alt="Detalle Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_movimientos.png" alt="Movimientos Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_perfil.png" alt="Perfil Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_retirar.png" alt="Retirar Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_celebracion.png" alt="Celebración Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-HM — Dashboard.png" alt="Dashboard Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-OBJ — Lista Objetivos.png" alt="Objetivos Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-DET — Detalle Objetivo.png" alt="Detalle Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-MOV — Historial.png" alt="Movimientos Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-PER — Perfil y Ajustes.png" alt="Perfil Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W - Retirar.png" alt="Retirar Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-CEL — Modal Celebración.png" alt="Celebración Low"></div>
             <!-- Duplicado para loop infinito -->
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_dashboard.png" alt="Dashboard Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_objetivos.png" alt="Objetivos Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_detalle.png" alt="Detalle Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_movimientos.png" alt="Movimientos Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_perfil.png" alt="Perfil Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_retirar.png" alt="Retirar Low"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/lofi_celebracion.png" alt="Celebración Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-HM — Dashboard.png" alt="Dashboard Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-OBJ — Lista Objetivos.png" alt="Objetivos Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-DET — Detalle Objetivo.png" alt="Detalle Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-MOV — Historial.png" alt="Movimientos Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-PER — Perfil y Ajustes.png" alt="Perfil Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W - Retirar.png" alt="Retirar Low"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/W-CEL — Modal Celebración.png" alt="Celebración Low"></div>
           </div>
         </div>
 
         <div class="marquee-wrapper">
           <div class="marquee-title-row">B) Pantallas de Alta Fidelidad (Interfaz Pulida)</div>
           <div class="marquee-row right">
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_dashboard.png" alt="Dashboard Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_objetivos.png" alt="Objetivos Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_detalle.png" alt="Detalle Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_movimientos.png" alt="Movimientos Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_perfil.png" alt="Perfil Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_agregar.png" alt="Agregar Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_celebracion.png" alt="Celebración Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-HM — Dashboard.png" alt="Dashboard Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-OBJ — Lista Objetivos.png" alt="Objetivos Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-DET — Detalle Objetivo.png" alt="Detalle Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-MOV — Historial.png" alt="Movimientos Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-PER — Perfil.png" alt="Perfil Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-ADD — Modal Agregar.png" alt="Agregar Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-CEL — Modal Celebración.png" alt="Celebración Hi"></div>
             <!-- Duplicado para loop infinito -->
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_dashboard.png" alt="Dashboard Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_objetivos.png" alt="Objetivos Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_detalle.png" alt="Detalle Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_movimientos.png" alt="Movimientos Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_perfil.png" alt="Perfil Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_agregar.png" alt="Agregar Hi"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/hf_celebracion.png" alt="Celebración Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-HM — Dashboard.png" alt="Dashboard Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-OBJ — Lista Objetivos.png" alt="Objetivos Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-DET — Detalle Objetivo.png" alt="Detalle Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-MOV — Historial.png" alt="Movimientos Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-PER — Perfil.png" alt="Perfil Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-ADD — Modal Agregar.png" alt="Agregar Hi"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/HF W-CEL — Modal Celebración.png" alt="Celebración Hi"></div>
           </div>
         </div>
       </section>
@@ -301,16 +314,16 @@
       <h2>Decisiones de Diseño</h2>
 
       <figure class="article-image pull-right observer-item fade-in-up" style="position: relative;">
-        <img src="img/Cumulo-Web/final_movimientos.png" alt="Historial de movimientos producto final">
+        <img src="img/Cumulo-Web/Final/Movimientos — Cúmulo.png" alt="Historial de movimientos producto final">
         <div class="img-overlay"><span>Historial de movimientos — Producto final</span></div>
       </figure>
 
-      <p class="spacer-extra">El reto principal no fue agregar funciones, sino <strong>decidir qué mostrar simultáneamente sin generar sobrecarga</strong>. Las interfaces financieras tienden a saturar con tablas y cifras compitiendo en el mismo nivel de jerarquía. En Cúmulo Web apliqué tres decisiones de diseño para evitarlo:</p>
+      <p class="spacer-extra">El reto principal no fue agregar funciones, sino <strong>traducir la simplicidad móvil a una superficie más amplia sin generar sobrecarga</strong>. Las interfaces financieras tienden a saturar con tablas y cifras compitiendo en el mismo nivel de jerarquía. En Cúmulo Web apliqué tres decisiones de diseño para mantener continuidad con la app:</p>
 
       <ol class="numbered-list">
-        <li><strong>Visión global siempre visible:</strong> El dashboard muestra el resumen de todas las metas activas, el progreso acumulado y los movimientos recientes sin necesidad de navegar entre secciones. El usuario comprende su situación financiera al primer vistazo.</li>
-        <li><strong>Gamificación integrada:</strong> El sistema de rachas, niveles y comunidad está directamente vinculado al comportamiento de ahorro. Los usuarios con racha activa completaron sus metas en menor tiempo que los que no la activaron.</li>
-        <li><strong>Multitarea sin fricción:</strong> El layout permite revisar el progreso de una meta, agregar dinero y consultar el historial en la misma sesión, sin perder el contexto de dónde está el usuario dentro del sistema.</li>
+        <li><strong>Visión global siempre visible:</strong> El dashboard toma el progreso por meta de la app y lo convierte en un resumen simultáneo de metas activas, progreso acumulado y movimientos recientes.</li>
+        <li><strong>Gamificación integrada:</strong> Las rachas y recompensas no se reinventan; se expanden a comunidad, niveles y metas compartidas para sostener el hábito cuando el usuario planifica en escritorio.</li>
+        <li><strong>Multitarea sin fricción:</strong> El layout permite revisar una meta, agregar dinero y consultar historial en la misma sesión, conservando el lenguaje de acciones rápidas que ya existía en la app móvil.</li>
       </ol>
 
       <div class="insight-quote" style="clear: both;">
@@ -319,33 +332,33 @@
 
       <!-- CARRUSEL PRODUCTO FINAL -->
       <h2>Producto Final</h2>
-      <p class="spacer-extra">El producto final incorporó funcionalidades que emergieron directamente de las pruebas con usuarios: el sistema de comunidad y grupos para metas compartidas, el simulador de proyección temporal y el modal de retiro con advertencia de impacto — fricción intencional diseñada para hacer consciente al usuario antes de retirar dinero de una meta activa.</p>
+      <p class="spacer-extra">El producto final funciona como la capa de planificación del ecosistema Cúmulo. Conserva los pilares de la app móvil — metas, movimientos, rachas y perfil — e incorpora funciones que tienen más sentido en escritorio: comunidad y grupos para metas compartidas, lectura amplia del historial, simulación de proyección temporal y un modal de retiro con advertencia de impacto. Esta última fricción es intencional: ayuda al usuario a tomar conciencia antes de retirar dinero de una meta activa.</p>
 
       <section class="marquee-container observer-item fade-in-up">
         <div class="marquee-wrapper">
           <div class="marquee-title-row">Estado Final — Producto Rediseñado Completo</div>
           <div class="marquee-row left">
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_dashboard.png" alt="Dashboard Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_objetivos.png" alt="Objetivos Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_detalle.png" alt="Detalle Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_movimientos.png" alt="Movimientos Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_comunidad.png" alt="Comunidad Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_agregar.png" alt="Agregar Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_retirar.png" alt="Retirar Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_celebracion.png" alt="Celebración Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_perfil.png" alt="Perfil Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_crear_objetivo.png" alt="Crear Objetivo Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Dashboard — Cúmulo.png" alt="Dashboard Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Mis Objetivos — Cúmulo.png" alt="Objetivos Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Detalle de Objetivo — Cúmulo.png" alt="Detalle Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Movimientos — Cúmulo.png" alt="Movimientos Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Comunidad y Grupos — Cúmulo.png" alt="Comunidad Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Modal Agregar Dinero — Cúmulo.png" alt="Agregar Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Modal Retirar Dinero — Cúmulo.png" alt="Retirar Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Celebración Objetivo Cumplido — Cúmulo.png" alt="Celebración Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Perfil y Ajustes — Cúmulo.png" alt="Perfil Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Crear Nuevo Objetivo — Cúmulo.png" alt="Crear Objetivo Final"></div>
             <!-- Duplicado para loop infinito -->
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_dashboard.png" alt="Dashboard Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_objetivos.png" alt="Objetivos Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_detalle.png" alt="Detalle Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_movimientos.png" alt="Movimientos Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_comunidad.png" alt="Comunidad Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_agregar.png" alt="Agregar Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_retirar.png" alt="Retirar Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_celebracion.png" alt="Celebración Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_perfil.png" alt="Perfil Final"></div>
-            <div class="marquee-card"><img src="img/Cumulo-Web/final_crear_objetivo.png" alt="Crear Objetivo Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Dashboard — Cúmulo.png" alt="Dashboard Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Mis Objetivos — Cúmulo.png" alt="Objetivos Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Detalle de Objetivo — Cúmulo.png" alt="Detalle Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Movimientos — Cúmulo.png" alt="Movimientos Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Comunidad y Grupos — Cúmulo.png" alt="Comunidad Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Modal Agregar Dinero — Cúmulo.png" alt="Agregar Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Modal Retirar Dinero — Cúmulo.png" alt="Retirar Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Celebración Objetivo Cumplido — Cúmulo.png" alt="Celebración Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Perfil y Ajustes — Cúmulo.png" alt="Perfil Final"></div>
+            <div class="marquee-card"><img src="img/Cumulo-Web/Final/Crear Nuevo Objetivo — Cúmulo.png" alt="Crear Objetivo Final"></div>
           </div>
         </div>
       </section>
@@ -353,13 +366,25 @@
       <div class="conclusion-section">
         <h2>Resultados</h2>
 
-        <p class="spacer-extra">Las pruebas de usabilidad con <strong>33 participantes entre 20 y 28 años</strong> arrojaron resultados que superaron las métricas de la versión móvil:</p>
+        <p class="spacer-extra">Las pruebas de usabilidad con <strong>33 participantes entre 20 y 28 años</strong> compararon la experiencia web contra los aprendizajes de Cúmulo App. El objetivo no era competir con la versión móvil, sino medir si la pantalla grande mejoraba tareas de análisis, configuración y seguimiento:</p>
 
-        <ol class="numbered-list">
-          <li><strong>70% de reducción en tiempo de registro</strong> de movimientos y configuración de metas — 5 puntos por encima del resultado en la app móvil, explicado por la mayor superficie visual y la eliminación del cambio de dispositivo.</li>
-          <li><strong>93% de consistencia en el hábito de ahorro</strong> — los usuarios que accedieron a Cúmulo Web desde su entorno de trabajo mantuvieron el registro activo de forma continua, impulsados por la presencia constante de la plataforma en su flujo de trabajo diario.</li>
-          <li><strong>90% de satisfacción general</strong>, consistente con la app móvil, confirmando que la identidad visual y la lógica del sistema se transfirieron de forma coherente entre plataformas.</li>
-        </ol>
+        <section class="metrics-grid observer-item fade-in-up">
+          <div class="metric-card">
+            <div class="metric-number">70%</div>
+            <div class="metric-label">Menos Tiempo</div>
+            <div class="metric-desc">Reducción en el registro de movimientos y configuración de metas frente a la versión móvil.</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">93%</div>
+            <div class="metric-label">Consistencia</div>
+            <div class="metric-desc">Usuarios mantuvieron el hábito de ahorro desde su entorno de trabajo diario.</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">90%</div>
+            <div class="metric-label">Satisfacción</div>
+            <div class="metric-desc">Satisfacción general, confirmando coherencia visual y lógica entre app móvil y web.</div>
+          </div>
+        </section>
 
         <p class="spacer-extra">El hallazgo más significativo no fue cuantitativo: <strong>los usuarios dejaron de describir la gestión financiera como una tarea separada</strong>. Al estar Cúmulo en el mismo entorno donde trabajan y crean, el ahorro se integró como parte natural de la jornada.</p>
 
@@ -384,3 +409,5 @@
   <script src="main.js"></script>
 </body>
 </html>
+
+

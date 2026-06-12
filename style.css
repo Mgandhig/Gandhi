@@ -7,6 +7,7 @@
   --text-main: #181818; /* Charcoal Black Puro */
   --text-muted: #6B6A65; /* Gris cálido de lectura */
   --accent-gold: #5E6E4C; /* Verde Medio / Oliva */
+  --accent-olive: var(--accent-gold);
   
   --border-delicate: rgba(24, 24, 24, 0.08); /* Borde negro sutil */
 
@@ -873,12 +874,78 @@ footer {
   filter: brightness(1) contrast(1.0) sepia(0%) grayscale(0%); /* Revelado brillante a todo color cuando haces hover */
 }
 .article-image figcaption {
-  background: var(--bg-card);
-  padding: 1rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  text-align: center;
-  border-top: 1px solid var(--border-delicate);
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  margin: 0 !important;
+  padding: 1.2rem 1rem 0.8rem !important;
+  background: linear-gradient(to top, rgba(15,15,15,0.75) 0%, transparent 100%) !important;
+  border-top: none !important;
+  color: #FAF9F6 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.7rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1em !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  text-transform: uppercase !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease !important;
+  z-index: 3 !important;
+}
+.article-image:hover figcaption {
+  opacity: 1 !important;
+}
+
+.article-diagram {
+  position: relative;
+  overflow: hidden;
+}
+
+.article-diagram figcaption,
+.img-overlay {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  margin: 0 !important;
+  padding: 1.2rem 1rem 0.8rem !important;
+  background: linear-gradient(to top, rgba(15,15,15,0.75) 0%, transparent 100%) !important;
+  border-top: none !important;
+  color: #FAF9F6 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.7rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1em !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  text-transform: uppercase !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease !important;
+  z-index: 3 !important;
+}
+
+.article-diagram:hover figcaption,
+.article-image:hover .img-overlay {
+  opacity: 1 !important;
+}
+
+.img-overlay span {
+  color: inherit !important;
+  font: inherit !important;
+  letter-spacing: inherit !important;
+  text-transform: inherit !important;
+}
+
+@media (hover: none) {
+  .article-image figcaption,
+  .article-diagram figcaption,
+  .article-image .img-overlay {
+    opacity: 1 !important;
+  }
 }
 .article-image.two-images {
   display: grid;

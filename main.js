@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
         
         let particlesArray = [];
+        let resetPortrait = null;
         
         // Ajustar Canvas al 100% de la ventana
         // Debounce: espera 300ms tras el último evento resize antes de reiniciar
@@ -84,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resizeCanvas();
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                if (typeof init === 'function') init();
+                if (typeof resetPortrait === 'function') resetPortrait();
             }, 300);
         }
         window.addEventListener('resize', onResize);
@@ -118,23 +119,28 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = canvas.getAttribute('data-src');
 
         img.onload = function() {
-            // Lógica para posicionar el rostro en la parte DERECHA del lienzo total
-            // Queremos que ocupe aprox el 40% del ancho y 90% del alto
-            const targetAreaWidth = canvas.width * 0.45;
-            const targetAreaHeight = canvas.height * 0.95;
-            
-            const scale = Math.min(targetAreaWidth / img.width, targetAreaHeight / img.height) * 1.1;
-            const drawWidth = img.width * scale;
-            const drawHeight = img.height * scale;
-            
-            // Posicionamiento editorial: a la derecha con un poco de aire (margin) y ajuste de +50px
-            const offsetX = (canvas.width - drawWidth - (canvas.width * 0.05)) + 50; 
-            const offsetY = canvas.height - drawHeight; // Pegado a la base
+            let imageData;
 
-            // Dibujar la imagen de forma invisible para escaneo
-            ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            function buildImageData() {
+                // Lógica para posicionar el rostro en la parte DERECHA del lienzo total
+                // Queremos que ocupe aprox el 40% del ancho y 90% del alto
+                const targetAreaWidth = canvas.width * 0.45;
+                const targetAreaHeight = canvas.height * 0.95;
+                
+                const scale = Math.min(targetAreaWidth / img.width, targetAreaHeight / img.height) * 1.1;
+                const drawWidth = img.width * scale;
+                const drawHeight = img.height * scale;
+                
+                // Posicionamiento editorial: a la derecha con un poco de aire (margin) y ajuste de +50px
+                const offsetX = (canvas.width - drawWidth - (canvas.width * 0.05)) + 50; 
+                const offsetY = canvas.height - drawHeight; // Pegado a la base
+
+                // Dibujar la imagen de forma invisible para escaneo
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+                imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
             
             class Particle {
                 constructor(x, y, color) {
@@ -221,7 +227,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 requestAnimationFrame(animate);
             }
             
-            init();
+            resetPortrait = function() {
+                buildImageData();
+                init();
+            };
+            
+            resetPortrait();
             animate();
         }
 
