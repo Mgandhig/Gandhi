@@ -1,8 +1,8 @@
 :root {
   /* Editorial Light / Wabi Sabi Palette */
-  --bg-color: #FAF9F6; /* Alabastro / Off-White más puro y fresco */
-  --bg-card:  #F2F0EB; /* Contraste ligerísimo para tarjetas (Alabastro en sombra) */
-  --bg-nav: rgba(250, 249, 246, 0.60); 
+  --bg-color: #FFFFFF; /* Blanco puro */
+  --bg-card:  #F7F7F5; /* Contraste ligerísimo para tarjetas */
+  --bg-nav: rgba(255, 255, 255, 0.60); 
   
   --text-main: #181818; /* Charcoal Black Puro */
   --text-muted: #6B6A65; /* Gris cálido de lectura */
@@ -87,7 +87,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(250, 249, 246, 0.35); /* Transparente sobre alabastro */
+  background: rgba(255, 255, 255, 0.35); /* Transparente sobre blanco */
   backdrop-filter: blur(24px) saturate(130%); 
   -webkit-backdrop-filter: blur(24px) saturate(130%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.03); 

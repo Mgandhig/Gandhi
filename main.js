@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.glass-nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.style.background = 'rgba(250, 249, 246, 0.70)'; // Alabastro con más opacidad al bajar
+            nav.style.background = 'rgba(255, 255, 255, 0.70)'; // Blanco con más opacidad al bajar
             nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.05)';
         } else {
-            nav.style.background = 'rgba(250, 249, 246, 0.35)'; // Alabastro casi transparente arriba
+            nav.style.background = 'rgba(255, 255, 255, 0.35)'; // Blanco casi transparente arriba
             nav.style.boxShadow = 'none';
         }
     });

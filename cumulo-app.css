@@ -146,6 +146,16 @@ body { background-color: var(--bg-color); }
   float: right;
   margin: 0.5rem -4rem 1.5rem 2.5rem;
 }
+
+/* ── Wide variant — for diagrams/tables that need full column width and legibility,
+     no bleed, no float, stays aligned with the rest of the single-column layout ── */
+.article-body .article-image.wide {
+  max-width: 100%;
+  width: 100%;
+  float: none;
+  margin: 2.5rem 0;
+}
+
 .article-body .article-image img {
   filter: none;
   width: 100%;
@@ -154,6 +164,223 @@ body { background-color: var(--bg-color); }
 }
 .article-body .article-image:hover img {
   filter: none;
+}
+
+/* ── Pain Points Grid ── */
+.pain-points-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 3rem 0 5rem;
+}
+.pain-point-card {
+  border: 1px solid var(--border-delicate);
+  border-radius: 12px;
+  padding: 2rem;
+  background: var(--bg-card);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+.pain-point-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  border-color: var(--accent-olive);
+}
+.pain-point-number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--accent-olive);
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+.pain-point-card h4 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin: 0 0 0.8rem;
+  line-height: 1.35;
+}
+.pain-point-card p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ── Archetype Cards (full detail: quote, data, frustrations/needs, motivations) ── */
+.archetype-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin: 3rem 0 4rem;
+}
+.archetype-card {
+  border: 1px solid var(--border-delicate);
+  border-radius: 16px;
+  padding: 2.5rem;
+  background: var(--bg-card);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
+}
+.archetype-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.archetype-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+.archetype-avatar {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(94, 110, 76, 0.14);
+  color: var(--accent-olive);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.archetype-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text-main);
+  margin: 0 0 0.3rem;
+}
+.archetype-tag {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.archetype-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--text-main);
+  border-left: 2px solid var(--accent-olive);
+  padding-left: 1.2rem;
+  margin: 0 0 2rem;
+}
+
+.archetype-data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-delicate);
+}
+.archetype-data-item .data-label {
+  display: block;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-olive);
+  margin-bottom: 0.4rem;
+}
+.archetype-data-item .data-value {
+  font-size: 0.88rem;
+  color: var(--text-main);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.archetype-fn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 1.8rem;
+}
+.archetype-fn-col .fn-label {
+  display: block;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.8rem;
+}
+.archetype-fn-col.frustrations .fn-label { color: #b5543a; }
+.archetype-fn-col.needs .fn-label { color: var(--accent-olive); }
+.archetype-fn-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.archetype-fn-col li {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  font-weight: 300;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.archetype-fn-col li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.archetype-motivations {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-delicate);
+}
+.archetype-motivations .data-label {
+  display: block;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-olive);
+  margin-bottom: 0.5rem;
+}
+
+/* ── Finding Card (data-driven findings, distinct from inspirational insight-quote) ── */
+.finding-card {
+  border-left: 3px solid var(--accent-olive);
+  background: var(--bg-card);
+  padding: 1.8rem 2.2rem;
+  margin: 3rem 0;
+  border-radius: 0 10px 10px 0;
+}
+.finding-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-olive);
+  margin-bottom: 0.7rem;
+}
+.finding-card p {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.7;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: 0.01em;
 }
 
 /* ── Insight Quote ── */
@@ -437,4 +664,18 @@ body { background-color: var(--bg-color); }
   }
 
   .marquee-title-row { padding-left: 2rem; }
+
+  .pain-points-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .archetype-card {
+    padding: 1.8rem;
+  }
+  .archetype-data-grid,
+  .archetype-fn-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
 }
