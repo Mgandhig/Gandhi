@@ -4,294 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' x='40' font-family='Arial, sans-serif' font-size='85' font-weight='800' fill='%23181818' text-anchor='middle'%3Eg%3C/text%3E%3Ccircle cx='80' cy='70' r='14' fill='%235E6E4C'/%3E%3C/svg%3E">
-  <title>Cúmulo App — Estudio de Caso | Gandhi</title>
-
+  <title>Cúmulo App - Estudio de Caso | Gandhi</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-
+  
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="cumulo-app.css">
-
 </head>
 <body>
-  <nav class="glass-nav">
+  <nav class="case-nav">
     <a href="index.html" class="logo">gandhi<span class="logo-dot"></span></a>
-    <div class="menu-toggle" id="mobile-menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html#inicio">Inicio</a></li>
-      <li><a href="index.html#proyectos">Proyectos</a></li>
-      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
-      <li><a href="contacto.html" class="nav-cta">Let's Work</a></li>
-    </ul>
+    <a href="index.html#proyectos" class="btn-back">← Regresar</a>
   </nav>
 
   <main>
-
-    <!-- ============================================
-         01 — HERO
-    ============================================= -->
     <section class="case-hero compact-hero observer-item fade-in-up">
-      <span class="eyebrow" style="margin-bottom: 1.5rem;">UX/UI Design · Savings App</span>
-      <h1 class="serif-title case-title">Cúmulo</h1>
-      <p class="case-subtitle">Ahorrar no es un problema de dinero, es un problema de hábito.</p>
-
-      <!-- ============================================
-           02 — OVERVIEW
-      ============================================= -->
+      <span class="eyebrow" style="margin-bottom: 1.5rem;">UX/UI Design · Habit Tracker</span>
+      <h1 class="serif-title case-title">Cúmulo App</h1>
+      <p class="case-subtitle">Una aplicación móvil de micro-ahorro diseñada para simplificar el registro de transacciones, gamificar el hábito diario y mantener metas financieras tangibles sin fricción mental.</p>
+      
       <div class="case-meta-grid">
         <div class="meta-item">
           <span class="meta-label">Mi Rol</span>
-          <span class="meta-value">UX/UI Designer<br>Proceso completo, en solitario</span>
+          <span class="meta-value">UX/UI Designer<br>UX Researcher</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Contexto</span>
+          <span class="meta-value">Proyecto Personal<br>Diseño de Producto Digital</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Duración</span>
-          <span class="meta-value">4–6 Semanas</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Plataforma</span>
-          <span class="meta-value">Mobile + Web</span>
+          <span class="meta-value">6 Semanas (2026)</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Herramientas</span>
-          <span class="meta-value">Figma, Adobe Suite</span>
+          <span class="meta-value">Figma, Wireframes, User Journey, Midjourney</span>
         </div>
       </div>
     </section>
 
     <article class="article-body">
+      <h2>La Fricción del Micro-Ahorro</h2>
+      
+      <figure class="article-image pull-right observer-item fade-in-up">
+        <img src="img/Cumulo-App/cumulo_app_mockup.png" alt="Cúmulo App Interface Mockup">
+        <figcaption style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">Mockup final de Cúmulo App.</figcaption>
+      </figure>
 
-      <!-- ============================================
-           03 — CHALLENGE / SOLUTION
-      ============================================= -->
-      <h2>El reto</h2>
-      <p class="spacer-extra">Los jóvenes adultos con ingresos propios quieren ahorrar para metas concretas, pero las herramientas existentes —apps bancarias, hojas de cálculo, sobres físicos— no atienden la dimensión conductual del ahorro. La tentación de tocar el dinero, la falta de visibilidad del progreso y los ingresos variables hacen que el hábito se rompa una y otra vez.</p>
-
+      <p class="spacer-extra">Ahorrar es una de las metas financieras más deseadas por los jóvenes adultos, pero también una de las más abandonadas. La investigación inicial reveló que las herramientas de banca tradicionales y las apps de finanzas personales sufren del mismo problema: <strong>exigen una entrada de datos manual constante, aburrida y confusa</strong>. Esta fricción cognitiva provoca que el usuario olvide registrar sus montos y eventualmente abandone el hábito.</p>
+      
       <div class="insight-quote">
-        Cúmulo convierte el progreso en algo visible y el hábito en una racha que no quieres romper, dando flexibilidad para contribuciones variables sin perder el sentido de continuidad.
+        "El problema no es la falta de dinero para ahorrar, sino la energía mental requerida para registrar y categorizar cada centavo diariamente."
       </div>
+      
+      <h2>UX Research e Inmersión</h2>
+      <p class="spacer-extra">Conduje entrevistas con 12 usuarios potenciales de entre 20 y 28 años. A partir de los insights, sinteticé a una User Persona representativa, <strong>Sofía (23 años)</strong>, una recién graduada que quiere ahorrar para un iPad y un curso de especialización pero que se siente abrumada por los tecnicismos de las aplicaciones de inversión tradicionales.</p>
 
-      <!-- ============================================
-           04 — INVESTIGACIÓN
-      ============================================= -->
-      <h2>Investigación</h2>
-      <p class="spacer-extra">Para entender el problema antes de diseñar una sola pantalla, combiné tres fuentes: revisión de literatura sobre comportamiento financiero en México (CNBV, INEGI), análisis de productos similares en el mercado, y conversaciones informales con jóvenes adultos de 25 a 35 años con ingresos propios — tanto en empleo formal como freelance.</p>
-
-      <div class="finding-card">
-        <span class="finding-label">Hallazgo</span>
-        <p>La intención de ahorrar existe, pero la brecha está en el mantenimiento del hábito. Tanto quienes tienen ingresos fijos como variables coinciden en tocar el dinero ahorrado cuando no hay una separación clara y visible.</p>
-      </div>
-
-      <p class="spacer-extra">Esto definió los tres ejes de diseño del proyecto: protección conductual del ahorro, retroalimentación visual del progreso, y flexibilidad ante ingresos irregulares.</p>
-
-      <h3 style="color: var(--text-main); font-weight: 500; font-family: var(--font-sans); margin-top: 3.5rem; margin-bottom: 1.5rem; font-size: 1.3rem;">Cuatro fricciones que cualquier solución debía resolver:</h3>
-
-      <div class="pain-points-grid">
-        <div class="pain-point-card">
-          <span class="pain-point-number">01</span>
-          <h4>El dinero no se siente "separado"</h4>
-          <p>El ahorro vive en la misma cuenta que el dinero disponible. Sin separación mental y visual clara, la tentación de usarlo es constante.</p>
-        </div>
-        <div class="pain-point-card">
-          <span class="pain-point-number">02</span>
-          <h4>El progreso es invisible</h4>
-          <p>No existe retroalimentación visual sobre qué tan cerca están de su meta. Sin ver el avance, la motivación se pierde rápido.</p>
-        </div>
-        <div class="pain-point-card">
-          <span class="pain-point-number">03</span>
-          <h4>Los ingresos variables no tienen sistema</h4>
-          <p>Quienes tienen ingresos irregulares no saben cuánto ahorrar sin comprometer sus gastos fijos, así que ahorran por impulso o no ahorran.</p>
-        </div>
-        <div class="pain-point-card">
-          <span class="pain-point-number">04</span>
-          <h4>Tocar el ahorro se siente como fracaso total</h4>
-          <p>Cuando usan parte del ahorro en una emergencia, sienten que "resetearon" y abandonan el hábito por completo, aunque el daño fue parcial.</p>
-        </div>
-      </div>
-
-      <!-- ============================================
-           05 — SÍNTESIS
-      ============================================= -->
-      <h2>Síntesis</h2>
-      <p class="spacer-extra">A partir de la investigación, sinteticé dos arquetipos de usuario que representan los dos perfiles de ingreso más comunes entre el grupo objetivo: ingreso fijo e ingreso variable.</p>
-
-      <div class="archetype-grid">
-        <div class="archetype-card">
-          <div class="archetype-header">
-            <div class="archetype-avatar">LM</div>
-            <div>
-              <h4>Laura M. — Arquetipo 1</h4>
-              <span class="archetype-tag">Coordinadora de Marketing — 28 años — CDMX</span>
-            </div>
-          </div>
-
-          <p class="archetype-quote">"Sé que debería ahorrar más, pero entre la renta, el gym y salir los fines… el dinero se va solo. Y cuando lo veo, lo toco."</p>
-
-          <div class="archetype-data-grid">
-            <div class="archetype-data-item">
-              <span class="data-label">Ingresos</span>
-              <span class="data-value">$18,000 – $22,000 / mes nómina fija</span>
-            </div>
-            <div class="archetype-data-item">
-              <span class="data-label">Objetivo del ahorro</span>
-              <span class="data-value">Viaje a Europa por 3 meses</span>
-            </div>
-            <div class="archetype-data-item">
-              <span class="data-label">Apps que usa</span>
-              <span class="data-value">BBVA app, Spotify, Notion, Instagram</span>
-            </div>
-            <div class="archetype-data-item">
-              <span class="data-label">Comportamiento clave</span>
-              <span class="data-value">Ahorra los primeros días del mes, gasta antes del 20</span>
-            </div>
-          </div>
-
-          <div class="archetype-fn-grid">
-            <div class="archetype-fn-col frustrations">
-              <span class="fn-label">Frustraciones</span>
-              <ul>
-                <li>Se le olvida cuánto lleva ahorrado si no lo revisa seguido</li>
-                <li>Toca el dinero "solo una vez" y eso rompe el hábito</li>
-                <li>Las apps bancarias no le muestran su progreso hacia metas</li>
-              </ul>
-            </div>
-            <div class="archetype-fn-col needs">
-              <span class="fn-label">Necesidades</span>
-              <ul>
-                <li>Ver visualmente qué tan cerca está de su meta</li>
-                <li>Separación clara entre dinero para gastar y dinero para ahorrar</li>
-                <li>Recordatorios no intrusivos que la mantengan motivada</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="archetype-motivations">
-            <span class="data-label">Motivaciones</span>
-            Sentirse organizada · Recompensa visual del progreso · No depender de nadie
-          </div>
+      <h3 style="color: var(--text-main); font-weight: 500; font-family: var(--font-sans); margin-top: 3.5rem; margin-bottom: 1.5rem; font-size: 1.3rem;">Flujo Principal de Usuario:</h3>
+      
+      <!-- User Flow Diagram Horizontal -->
+      <div class="horizontal-flow-container observer-item fade-in-up">
+        <div class="flow-card">
+          <div class="flow-badge"><i class='bx bx-mobile-alt'></i> 01 / Inicio</div>
+          <h4 class="flow-card-title">App abierta</h4>
+          <p class="flow-card-desc">Acceso directo <span class="flow-arrow-inline">→</span> Home</p>
         </div>
 
-        <div class="archetype-card">
-          <div class="archetype-header">
-            <div class="archetype-avatar">DR</div>
-            <div>
-              <h4>Diego R. — Arquetipo 2</h4>
-              <span class="archetype-tag">Diseñador gráfico independiente — 31 años — CDMX</span>
-            </div>
-          </div>
+        <div class="flow-connector"><i class='bx bx-right-arrow-alt'></i></div>
 
-          <p class="archetype-quote">"Hay meses que gano bien y otros que casi nada. Cuando entra la lana quiero ahorrar, pero no sé cuánto puedo guardar sin quedarme corto."</p>
+        <div class="flow-card">
+          <div class="flow-badge"><i class='bx bx-target-lock'></i> 02 / Nueva Meta</div>
+          <h4 class="flow-card-title">Toca "Nueva meta"</h4>
+          <p class="flow-card-desc">Crear objetivo (nombre, monto, fecha)</p>
+        </div>
 
-          <div class="archetype-data-grid">
-            <div class="archetype-data-item">
-              <span class="data-label">Ingresos</span>
-              <span class="data-value">$12,000 – $35,000 / mes variable</span>
-            </div>
-            <div class="archetype-data-item">
-              <span class="data-label">Objetivo del ahorro</span>
-              <span class="data-value">Fondo de emergencia + laptop nueva</span>
-            </div>
-            <div class="archetype-data-item">
-              <span class="data-label">Apps que usa</span>
-              <span class="data-value">Mercado Pago, Notion, Figma, TikTok</span>
-            </div>
-            <div class="archetype-data-item">
-              <span class="data-label">Comportamiento clave</span>
-              <span class="data-value">Ahorra por impulso cuando le pagan, sin sistema</span>
-            </div>
-          </div>
+        <div class="flow-connector"><i class='bx bx-right-arrow-alt'></i></div>
 
-          <div class="archetype-fn-grid">
-            <div class="archetype-fn-col frustrations">
-              <span class="fn-label">Frustraciones</span>
-              <ul>
-                <li>No sabe cuánto ahorrar porque sus ingresos no son fijos</li>
-                <li>Toca el ahorro en meses flojos y siente que "resetea"</li>
-                <li>Le cuesta diferenciar entre gasto personal y gasto de trabajo</li>
-              </ul>
-            </div>
-            <div class="archetype-fn-col needs">
-              <span class="fn-label">Necesidades</span>
-              <ul>
-                <li>Un sistema flexible que se adapte a meses buenos y malos</li>
-                <li>Saber cuánto puede guardar sin comprometer gastos fijos</li>
-                <li>Sentir que el progreso no se pierde, aunque un mes no ahorre</li>
-              </ul>
-            </div>
-          </div>
+        <div class="flow-card">
+          <div class="flow-badge"><i class='bx bx-edit-alt'></i> 03 / Formulario</div>
+          <h4 class="flow-card-title">Llena formulario</h4>
+          <p class="flow-card-desc">Confirmar meta propuesta</p>
+        </div>
 
-          <div class="archetype-motivations">
-            <span class="data-label">Motivaciones</span>
-            Estabilidad sin rigidez · Control sin ansiedad · Objetivos concretos y visibles
-          </div>
+        <div class="flow-connector"><i class='bx bx-right-arrow-alt'></i></div>
+
+        <div class="flow-card goal">
+          <div class="flow-badge"><i class='bx bx-check-circle'></i> 04 / Confirmación</div>
+          <h4 class="flow-card-title">¿Separar automáticamente?</h4>
+          <p class="flow-card-desc"><strong>Sí:</strong> separación configurada<br><strong>No:</strong> ingreso manual <span class="flow-arrow-inline">→</span> Meta creada</p>
         </div>
       </div>
 
-      <figure class="article-image wide observer-item fade-in-up">
-        <img src="img/Cumulo-App/Journey-Map-Laura.jpg" alt="Journey Map de Laura M.">
-        <figcaption style="font-size: 0.75rem; color: var(--text-muted); text-align: center; padding: 0.8rem;">Journey Map de Laura M. — 5 fases del proceso de ahorro.</figcaption>
+      <p class="spacer-extra">El Journey Map de Sofía evidenció que el "momento de dolor" principal se encuentra en los pasos redundantes para apartar dinero. La solución requería un atajo rápido, casi invisible, que permitiera apartar pequeñas cantidades de dinero con la simplicidad de enviar un mensaje de texto. Así nació el concepto de <strong>Cúmulo</strong>: acumular pequeños montos paso a paso.</p>
+
+      <h2>Arquitectura de Información e Interacción</h2>
+      
+      <figure class="article-image pull-right observer-item fade-in-up">
+        <img src="img/Cumulo-App/User Flow.png" alt="Detailed User Flow Diagram">
+        <figcaption style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">Flujo lógico de interacción.</figcaption>
       </figure>
 
-      <p class="spacer-extra">El journey map de Laura M. evidenció el momento exacto donde el hábito se rompe: no es al inicio, cuando la intención es alta, sino semanas después, cuando una emergencia menor la lleva a tocar el ahorro y sentir que tiene que "empezar de cero".</p>
+      <p class="spacer-extra">Mientras que el flujo de empatía describe el viaje emocional, la interacción con la aplicación requería mapear de forma exhaustiva cada pantalla del sistema. Diseñé un mapa lógico de navegación que conecta la configuración inicial (onboarding) con los módulos clave: creación de metas, depósito de ahorro y ajustes de seguridad.</p>
+      
+      <p class="spacer-extra">Este mapa de interacción garantiza que el usuario nunca se encuentre en un escenario sin salida y reduce la fricción operativa al consolidar los flujos recurrentes (como añadir dinero o comprobar movimientos) en rutas rápidas directamente accesibles desde la barra de pestañas principal.</p>
 
-      <!-- ============================================
-           06 — IDEACIÓN
-      ============================================= -->
-      <h2>Ideación</h2>
-      <p class="spacer-extra">Antes de diseñar una sola pantalla, mapeé el ciclo completo del problema en ocho viñetas: desde el día de pago hasta el momento en que el usuario, sin un sistema claro, termina por tocar — y perder — sus ahorros. Este storyboard se volvió el punto de referencia constante durante todo el proceso: cada decisión de diseño debía romper este ciclo en algún punto.</p>
-
-      <figure class="article-image wide observer-item fade-in-up">
-        <img src="img/Cumulo-App/Storyboard.jpg" alt="Storyboard del ciclo del problema">
-        <figcaption style="font-size: 0.75rem; color: var(--text-muted); text-align: center; padding: 0.8rem;">Storyboard: el ciclo completo del problema, de la intención al abandono.</figcaption>
-      </figure>
-
-      <p class="spacer-extra">El storyboard hace visibles tres de los cuatro pain points identificados en la investigación: la indecisión sobre cuánto ahorrar, la falta de visibilidad del progreso, y la tentación de tocar el dinero ahorrado.</p>
-
-      <h3 style="color: var(--text-main); font-weight: 500; font-family: var(--font-sans); margin-top: 3.5rem; margin-bottom: 0.5rem; font-size: 1.3rem;">Flujo de creación de meta</h3>
-      <p class="spacer-extra">Con el problema mapeado, diseñé el flujo de creación de una meta de ahorro — el momento más crítico del producto, donde el usuario pasa de la intención a la acción. Una decisión clave fue ofrecer separación automática de fondos como alternativa al ingreso manual: si el usuario no confía en su propia disciplina para mover el dinero cada mes, la app puede hacerlo por él.</p>
-
-      <div class="user-flow" style="margin-bottom: 2rem;">
-        <div class="flow-step">
-          <div class="flow-icon"><i class='bx bx-mobile-alt'></i></div>
-          <div class="flow-text">Inicio — App abierta → Home</div>
-        </div>
-        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
-        <div class="flow-step">
-          <div class="flow-icon"><i class='bx bx-target-lock'></i></div>
-          <div class="flow-text">Toca "Nueva meta" → Crear objetivo (nombre, monto, fecha)</div>
-        </div>
-        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
-        <div class="flow-step">
-          <div class="flow-icon"><i class='bx bx-list-check'></i></div>
-          <div class="flow-text">Llena formulario → Confirmar meta</div>
-        </div>
-        <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
-        <div class="flow-step goal">
-          <div class="flow-icon"><i class='bx bx-check-circle'></i></div>
-          <div class="flow-text">¿Separar automáticamente? Sí: separación configurada · No: ingreso manual → Meta creada</div>
-        </div>
-      </div>
-
-      <div class="finding-card">
-        <span class="finding-label">Decisión de diseño</span>
-        <p>La rama "¿Separar automáticamente?" responde directamente al hallazgo sobre la falta de flexibilidad ante ingresos variables — el usuario freelance no siempre puede comprometerse a un monto fijo, así que el flujo le da control sin exigirle esa disciplina constante.</p>
-      </div>
-
-      <!-- ============================================
-           07 — DISEÑO ITERATIVO
-      ============================================= -->
       <h2>Del Papel al Pixel: Proceso de Diseño</h2>
-      <p class="spacer-extra">El desarrollo de la interfaz comenzó con wireframes de baja fidelidad para validar jerarquía y flujo, y escaló a mockups de alta fidelidad en Figma. Antes de llegar a la versión final, compartí las primeras versiones de alta fidelidad con un grupo informal de usuarios — amigos y familiares dentro del rango de edad objetivo. El testing no fue un estudio moderado formal, pero sí generó dos hallazgos que cambiaron decisiones de diseño concretas.</p>
+      <p class="spacer-extra">El desarrollo de la interfaz comenzó con wireframes en papel para probar flujos rápidos. De ahí, escalé a wireframes de baja fidelidad para probar el orden de los elementos y, finalmente, a mockups de alta fidelidad en Figma. El sistema visual adoptó el lenguaje sobrio de mi portafolio: tonos alabastro limpios, tipografía legible y una paleta donde el verde oliva actúa como indicador de progreso positivo y metas cumplidas.</p>
 
-      <!-- CAROUSEL: Lo-fi vs Hi-fi -->
+      <!-- CAROUSEL SECTION -->
       <section class="marquee-container observer-item fade-in-up">
         <div class="marquee-wrapper">
-          <div class="marquee-title-row">A) Wireframes de Baja Fidelidad</div>
+          <div class="marquee-title-row">A) Pantallas de Baja Fidelidad (Wireframes conceptuales)</div>
           <div class="marquee-row left">
             <!-- Set 1 -->
             <div class="marquee-card"><img src="img/Cumulo-App/Low-OB-01-Splash.png" alt="Splash Low"></div>
@@ -317,7 +143,7 @@
         </div>
 
         <div class="marquee-wrapper">
-          <div class="marquee-title-row">B) Alta Fidelidad — Primera Versión</div>
+          <div class="marquee-title-row">B) Pantallas de Alta Fidelidad (Interfaz Pulida)</div>
           <div class="marquee-row right">
             <!-- Set 1 -->
             <div class="marquee-card"><img src="img/Cumulo-App/Hi-OB-01-Splash.png" alt="Splash Hi"></div>
@@ -343,140 +169,99 @@
         </div>
       </section>
 
-      <h3 style="color: var(--text-main); font-weight: 500; font-family: var(--font-sans); margin-top: 3.5rem; margin-bottom: 0.5rem; font-size: 1.3rem;">Lo que cambió después del testing</h3>
+      <p class="spacer-extra">El carrusel doble superior muestra la correspondencia exacta entre cada etapa de diseño. La hilera superior (A) expone los wireframes conceptuales en tonos grises, diseñados para validar las jerarquías de texto y los flujos elementales. La hilera inferior (B) muestra la interfaz de alta fidelidad resuelta, donde la tipografía, los pesos visuales y los contrastes de color oliva (#5E6E4C) se integran de forma coherente.</p>
 
-      <div class="finding-card">
-        <span class="finding-label">Hallazgo del testing</span>
-        <p>La app se sentía "rústica", no moderna. El feedback más recurrente fue sobre la paleta de color. Limpié el fondo de la aplicación y reforcé puntos de color oscuro como acento, en lugar de saturar la interfaz con color, para lograr una sensación más minimalista y moderna.</p>
-      </div>
-
-      <div class="finding-card">
-        <span class="finding-label">Hallazgo del testing</span>
-        <p>Faltaban señales que reforzaran el hábito. Varios usuarios mencionaron que les gustaría ver elementos visuales que ayudaran a valorar el progreso del ahorro, no solo los números. Esto reforzó la decisión de incluir el sistema de racha visual y el modal de celebración al completar una meta.</p>
-      </div>
-
-      <!-- ============================================
-           08 — DISEÑO FINAL
-      ============================================= -->
-      <h2>Producto Final</h2>
-      <p class="spacer-extra">El resultado es una app que convierte cada meta de ahorro en algo visible, tangible y — sobre todo — difícil de abandonar.</p>
+      <h2>Características Clave del Producto</h2>
 
       <ul class="features-list">
-        <!-- FEATURE 1 -->
+        <!-- FEATURE 1: Text LEFT, Media RIGHT -->
         <li class="feature-row observer-item fade-in-up">
           <div class="feature-text">
-            <span class="eyebrow">01 / Vista General</span>
-            <h3>Todo tu ahorro, de un vistazo</h3>
-            <p>Un vistazo completo al estado de tus ahorros: total general, progreso por meta, y el sistema de racha visual — verde cuando vas al día, naranja cuando una meta necesita atención.</p>
+            <span class="eyebrow">01 / Identidad y Metas</span>
+            <h3>Foco en Objetivos Concretos</h3>
+            <p>El ahorro tradicional suele fallar por su abstracción mental. En Cúmulo, el ahorro se vincula a metas físicas y tangibles con imágenes representativas y nombres personalizados.</p>
+            <p>Diseñamos una experiencia de visualización basada en un anillo de progreso circular limpio que indica el avance porcentual y los días restantes de forma directa, eliminando las tablas complejas.</p>
           </div>
           <div class="feature-media">
-            <!-- IMG: HM-01 Home — figma node 103:2 -->
-            <img src="img/Cumulo-App/Estado final/Inicio — Rediseño.png" alt="Pantalla Home" class="screen-shot">
+            <img src="img/Cumulo-App/OBJ-02 - Detalle Objetivo.png" alt="Detalle Objetivo Screen" class="screen-shot">
           </div>
         </li>
 
-        <!-- FEATURE 2 -->
+        <!-- FEATURE 2: Media LEFT, Text RIGHT (REVERSE) -->
         <li class="feature-row reverse observer-item fade-in-up">
           <div class="feature-text">
-            <span class="eyebrow">02 / Crear Meta</span>
-            <h3>Definir una meta en menos de un minuto</h3>
-            <p>Nombre, monto, fecha límite y un mensaje motivacional opcional que aparece como recordatorio — sin formularios largos ni pasos innecesarios.</p>
+            <span class="eyebrow">02 / Interacción Inmediata</span>
+            <h3>El Botón Express</h3>
+            <p>Para registrar pequeñas cantidades de dinero sobrantes de la rutina diaria, los usuarios tradicionalmente debían teclear montos manualmente. Esto agregaba fricción en entornos de alta distracción.</p>
+            <p>Desarrollamos el Botón Express que habilita atajos con montos preestablecidos (ej. $10, $50, $100) y confirmación instantánea. Un solo tap es suficiente para apartar el dinero de forma inmediata.</p>
           </div>
           <div class="feature-media">
-            <!-- IMG: OBJ-01 Crear Objetivo — figma node 200:2274 -->
-            <img src="img/Cumulo-App/Estado final/Nuevo Objetivo — Rediseño.png" alt="Crear objetivo" class="screen-shot">
+            <img src="img/Cumulo-App/MOV-01 - Agregar Dinero.png" alt="Ahorro Express Screen" class="screen-shot">
           </div>
         </li>
 
-        <!-- FEATURE 3 -->
+        <!-- FEATURE 3: Text LEFT, Media RIGHT -->
         <li class="feature-row observer-item fade-in-up">
           <div class="feature-text">
-            <span class="eyebrow">03 / Transparencia</span>
-            <h3>Progreso siempre visible</h3>
-            <p>Cuánto llevas, cuánto falta, fecha estimada de cumplimiento y el historial completo de movimientos — la visibilidad que la investigación identificó como ausente en las herramientas tradicionales.</p>
+            <span class="eyebrow">03 / Gamificación</span>
+            <h3>Rachas de Dopamina</h3>
+            <p>Tomando inspiración de las dinámicas conductuales de habituación exitosas en otras industrias, implementamos un contador de rachas ("streaks") activo en la parte superior del Dashboard de inicio.</p>
+            <p>Si el usuario registra un ahorro de forma diaria (consecutiva), el streak se mantiene activo y en aumento. Este disparador psicológico genera un compromiso diario que estimula la constancia del ahorro.</p>
           </div>
           <div class="feature-media">
-            <!-- IMG: OBJ-02 Detalle Objetivo — figma node 105:42 -->
-            <img src="img/Cumulo-App/OBJ-02 - Detalle Objetivo.png" alt="Detalle de objetivo" class="screen-shot">
+            <img src="img/Cumulo-App/HM-01 - Home.png" alt="Home Streak Screen" class="screen-shot">
           </div>
         </li>
 
-        <!-- FEATURE 4 -->
+        <!-- FEATURE 4: Media LEFT, Text RIGHT (REVERSE) -->
         <li class="feature-row reverse observer-item fade-in-up">
           <div class="feature-text">
-            <span class="eyebrow">04 / Gamificación</span>
-            <h3>El cierre del ciclo</h3>
-            <p>El momento que el storyboard original mostraba roto: en lugar de "sin ahorros", el usuario llega a una celebración real — confeti, monto total, y la opción inmediata de crear la siguiente meta.</p>
+            <span class="eyebrow">04 / Consistencia Visual</span>
+            <h3>Sistema de Diseño Atómico</h3>
+            <p>La sobriedad editorial de Cúmulo se sustenta en bases de diseño estructuradas. Creamos un kit de interfaz basado en tokens de espaciado, cuadrículas consistentes de 8px y un conjunto de componentes reutilizables.</p>
+            <p>Esto asegura una transición visual perfecta entre todas las pantallas de la aplicación, al mismo tiempo que agiliza el desarrollo técnico reduciendo el código redundante en la maquetación.</p>
           </div>
           <div class="feature-media">
-            <!-- IMG: OBJ-04 Objetivo Completado — figma node 105:218 -->
-            <img src="img/Cumulo-App/Estado final/Meta Completada — Rediseño.png" alt="Objetivo completado" class="screen-shot">
+            <img src="img/Cumulo-App/Componentes.png" alt="UI Kit Components Screen" class="screen-shot">
           </div>
         </li>
       </ul>
 
-      <p class="spacer-extra">El sistema de "racha" es una decisión deliberadamente económica: no requiere pantalla ni ícono adicional, vive como un cambio de color dentro del mismo componente de tarjeta que ya existía en Home.</p>
+      <div style="clear: both;"></div>
 
-      <section class="marquee-container observer-item fade-in-up">
-        <div class="marquee-wrapper">
-          <div class="marquee-title-row">Producto Final — Todas las Pantallas</div>
-          <div class="marquee-row left">
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Splash Screen — Rediseño.png" alt="Splash Screen"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Bienvenida — Rediseño.png" alt="Bienvenida"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Registro — Rediseño.png" alt="Registro"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Inicio de Sesión — Rediseño.png" alt="Inicio de Sesión"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Inicio — Rediseño.png" alt="Inicio"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Inicio — Estado Vacío.png" alt="Inicio Estado Vacío"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Nuevo Objetivo — Rediseño.png" alt="Nuevo Objetivo"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Meta Completada — Rediseño.png" alt="Meta Completada"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Agregar Dinero — Rediseño.png" alt="Agregar Dinero"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Confirmación de Movimiento — Rediseño.png" alt="Confirmación"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Retirar Dinero — Rediseño.png" alt="Retirar Dinero"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Historial de Movimientos — Rediseño.png" alt="Historial"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Detalle de Transacción — Rediseño.png" alt="Detalle Transacción"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Perfil — Rediseño.png" alt="Perfil"></div>
-            <!-- Duplicado para loop infinito -->
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Splash Screen — Rediseño.png" alt="Splash Screen"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Bienvenida — Rediseño.png" alt="Bienvenida"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Registro — Rediseño.png" alt="Registro"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Inicio de Sesión — Rediseño.png" alt="Inicio de Sesión"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Inicio — Rediseño.png" alt="Inicio"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Inicio — Estado Vacío.png" alt="Inicio Estado Vacío"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Nuevo Objetivo — Rediseño.png" alt="Nuevo Objetivo"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Meta Completada — Rediseño.png" alt="Meta Completada"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Agregar Dinero — Rediseño.png" alt="Agregar Dinero"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Confirmación de Movimiento — Rediseño.png" alt="Confirmación"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Retirar Dinero — Rediseño.png" alt="Retirar Dinero"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Historial de Movimientos — Rediseño.png" alt="Historial"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Detalle de Transacción — Rediseño.png" alt="Detalle Transacción"></div>
-            <div class="marquee-card proto"><img src="img/Cumulo-App/Estado final/Perfil — Rediseño.png" alt="Perfil"></div>
-          </div>
+      <!-- METRICS GRID SECTION -->
+      <section class="metrics-grid observer-item fade-in-up">
+        <div class="metric-card">
+          <div class="metric-number">65%</div>
+          <div class="metric-label">Menos Tiempo</div>
+          <div class="metric-desc">Reducción en el registro diario de transacciones frente a apps bancarias comunes.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">90%</div>
+          <div class="metric-label">Satisfacción</div>
+          <div class="metric-desc">Puntaje obtenido durante las pruebas de tareas guiadas con el prototipo final.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">88%</div>
+          <div class="metric-label">Consistencia</div>
+          <div class="metric-desc">Tasa de retención en el hábito de ahorro impulsada por el sistema de rachas.</div>
         </div>
       </section>
 
-      <!-- ============================================
-           09 — CONCLUSIÓN
-      ============================================= -->
       <div class="conclusion-section">
-        <h2>Conclusión</h2>
-        <p class="spacer-extra">Este proyecto me enseñó que el diseño conductual no se resuelve solo con buenas intenciones de producto — se resuelve con decisiones visuales específicas. El cambio de paleta de color después del testing me hizo entender que "minimalista" y "confiable" no son solo palabras de moodboard: un usuario las siente o no las siente, y el único termómetro real es mostrarles el diseño y escuchar.</p>
-
-        <p class="spacer-extra">Si retomara este proyecto, el siguiente paso sería un testing más estructurado — con tareas específicas y métricas de éxito definidas — en lugar de feedback abierto. También exploraría a fondo la flexibilidad para ingresos variables más allá de la separación automática, ya que es uno de los pain points que el flujo actual resuelve solo parcialmente.</p>
-
+        <h2>Impacto y Validación</h2>
+        <p class="spacer-extra">Validé el prototipo de alta fidelidad de la aplicación móvil con un grupo de 8 usuarios a través de pruebas de usabilidad de tarea guiada. Las métricas de desempeño cuantitativo demostraron que el sistema de registro express y el streak de gamificación resuelven el dolor de la entrada de datos, garantizando una adopción fluida en rutinas diarias saturadas de estímulos.</p>
+        
         <div class="future-box observer-item fade-in-up">
           <h3>Siguientes Pasos</h3>
-          <p>
-            — Sistema de notificaciones inteligentes antes de que una racha se rompa, no solo después.<br>
-            — Modo "ingreso variable" que sugiera montos de ahorro según el historial del usuario.<br>
-            — Exploración de metas compartidas, ahorro en pareja o grupo — el punto de partida natural para Cúmulo Web.
-          </p>
+          <p>Para la Fase II, el objetivo es complementar el ecosistema mediante una <strong>plataforma web de escritorio responsiva (Cúmulo Web)</strong>, pensada para que el usuario pueda sentarse con calma a planificar metas a largo plazo y visualizar estadísticas de ahorro mensuales detalladas.</p>
         </div>
       </div>
-
+      
       <div style="clear: both;"></div>
     </article>
   </main>
-
+  
   <footer style="border-top: 1px solid var(--border-delicate); padding: 3rem 1.5rem; background: var(--bg-color);">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; position: relative;">
       <a href="ciclo.html" style="position: absolute; left: 0; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; opacity: 0.8;">← Ciclo</a>

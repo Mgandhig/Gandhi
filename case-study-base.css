@@ -1,0 +1,155 @@
+/* ============================================
+   case-study-base.css
+   Estructura compartida por TODAS las páginas de
+   estudio de caso (hero, meta grid, cuerpo de artículo,
+   cita de insight). Antes duplicada inline en cada
+   página; ahora vive en un solo lugar.
+   ============================================ */
+
+body { background-color: var(--bg-color); }
+
+.case-hero {
+  padding: 180px 4rem 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.case-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.case-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.case-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: left;
+  border-top: 1px solid var(--border-delicate);
+  border-bottom: 1px solid var(--border-delicate);
+  padding: 2.5rem 0;
+  margin-bottom: 4rem;
+}
+.meta-item { display: flex; flex-direction: column; gap: 0.6rem; }
+.meta-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); }
+.meta-value { font-size: 0.9rem; color: var(--text-main); font-weight: 300; line-height: 1.4; }
+
+.article-body {
+  max-width: 750px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+.article-body h2 {
+  clear: both;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--accent-gold);
+  margin: 8rem 0 2.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.article-body p {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+  margin-bottom: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 0.015em;
+}
+.article-body strong {
+  color: var(--text-main);
+  font-weight: 400;
+}
+
+.insight-quote {
+  border-left: 2px solid var(--accent-gold);
+  padding-left: 2.5rem;
+  margin: 4rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: var(--text-main);
+  font-style: italic;
+}
+
+/* ── Pull Images — imágenes flotantes dentro del artículo ── */
+/*
+  Las figuras pull-left / pull-right viven dentro de la columna
+  angosta de 750px del artículo. Un margen negativo las hace
+  sobresalir de la columna mientras el texto sigue fluyendo a su lado.
+*/
+.article-body .article-image {
+  max-width: 210px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  background: var(--bg-card);
+  border: 1px solid var(--border-delicate);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
+  transform: none;
+  position: relative;
+  z-index: 10;
+}
+.article-body .article-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+.article-body .article-image.pull-left {
+  float: left;
+  margin: 0.5rem 2.5rem 1.5rem -4rem;
+}
+.article-body .article-image.pull-right {
+  float: right;
+  margin: 0.5rem -4rem 1.5rem 2.5rem;
+}
+
+/* Variante wide — para diagramas/tablas a todo el ancho de columna, sin bleed ni float */
+.article-body .article-image.wide {
+  max-width: 100%;
+  width: 100%;
+  float: none;
+  margin: 2.5rem 0;
+}
+
+.article-body .article-image img {
+  filter: none;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.article-body .article-image:hover img {
+  filter: none;
+}
+
+@media (max-width: 1100px) {
+  .article-body .article-image.pull-left,
+  .article-body .article-image.pull-right {
+    float: none;
+    margin: 2.5rem auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .case-hero { padding: 140px 2rem 40px; }
+  .case-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .article-body { padding: 0 2rem 80px; }
+  .insight-quote { font-size: 1.4rem; padding-left: 1.5rem; }
+
+  .article-body .article-image.pull-left,
+  .article-body .article-image.pull-right {
+    float: none;
+    margin: 2rem auto;
+    max-width: 100%;
+    width: 100%;
+  }
+}

@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' x='40' font-family='Arial, sans-serif' font-size='85' font-weight='800' fill='%23181818' text-anchor='middle'%3Eg%3C/text%3E%3Ccircle cx='80' cy='70' r='14' fill='%235E6E4C'/%3E%3C/svg%3E">
-  <title>Gandhi | UX/UI Designer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' x='40' font-family='Arial, sans-serif' font-size='85' font-weight='800' fill='%23181818' text-anchor='middle'%3Eg%3C/text%3E%3Ccircle cx='80' cy='70' r='14' fill='%23E06D3B'/%3E%3C/svg%3E">
+  <title>Gandhi | UX/UI Designer & Product Designer</title>
   
   <!-- Tipografías: Playfair Display e Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
   
-  <!-- Iconografías para Orbital (CDN) -->
+  <!-- Iconografías (CDN) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   
@@ -19,7 +19,15 @@
 </head>
 <body>
 
-  <!-- NAVBAR GLASSMORPHISM -->
+  <!-- PRELOADER ULTRA LIGERO DE ENTRADA -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <span class="preloader-logo">gandhi<span class="logo-dot"></span></span>
+      <div class="preloader-line"></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR GLASSMORPHISM OLIVA MILITAR CONSTANTE -->
   <nav class="glass-nav observer-item fade-in">
     <a href="#" class="logo">gandhi<span class="logo-dot"></span></a>
     <div class="menu-toggle" id="mobile-menu">
@@ -38,80 +46,89 @@
   <!-- HERO SECTION -->
   <section id="inicio" class="hero section-padding">
     <div class="hero-content observer-item fade-in-up">
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span class="status-text">Disponible para nuevos retos</span>
+      </div>
       <span class="eyebrow">UX/UI DESIGNER & PRODUCT DESIGNER</span>
-      <h1 class="serif-title">El diseño <br><span class="italic">sobrio</span> que emociona.</h1>
+      <h1 class="serif-title">El diseño <br><span class="italic highlight-orange">sobrio</span> que emociona.</h1>
       <p class="hero-desc">Soy Gandhi. Convierto la investigación y el pensamiento sistémico en productos que las personas disfrutan usar. Menos ruido, más intención.</p>
-      <a href="https://drive.google.com/file/d/1NH2yv004MmbZWlUaQlIuLoVWv4utVdOn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-elegant">
-        Ver Resume
+      <a href="https://drive.google.com/file/d/1Mp7B-TnfG2ky7iY8S44y3z_m2OsTeANK/view?usp=sharing" target="_blank" class="btn-elegant btn-primary-cta">
+        <span>Ver Resume</span>
+        <span class="cta-pill-tag">PDF</span>
         <span class="arrow">→</span>
       </a>
     </div>
     <canvas id="particle-canvas" class="portrait-real" data-src="img/hero-portrait.png" aria-label="Retrato Interactivo Gandhi"></canvas>
     <div class="hero-image observer-item fade-in">
-      <!-- Reservamos el espacio para el layout, pero el canvas ahora es absoluto -->
+      <!-- Espacio reservado -->
     </div>
   </section>
 
-  <!-- PROYECTOS SECTION -->
+  <!-- PROYECTOS SECTION (CARÁTURAS LIMPIAS CON DESVANECIMIENTO SUAVE AL HOVER) -->
   <section id="proyectos" class="proyectos section-padding">
     <div class="section-header observer-item fade-in-up">
-      <h2 class="serif-subtitle">Trabajo Seleccionado</h2>
-      <p class="section-desc">Proyectos donde la investigación guió cada decisión de diseño.</p>
+      <h2 class="serif-subtitle">Estudios de Caso</h2>
       <div class="line-divider"></div>
     </div>
     
     <div class="grid">
-      <!-- CÚMULO APP -->
+      <!-- CÚMULO APP (2 ESPACIOS EN LA CUADRÍCULA) -->
       <a href="cumulo-app.html" class="card card-featured observer-item fade-in-up">
         <div class="card-image">
-                    <img src="img/Cumulo-App/cumulo_app_mockup.png" alt="Cúmulo App Mockup">
+          <img src="img/Cumulo-App/cumulo_app_mockup.png" alt="Cúmulo App Mockup">
           <div class="card-overlay">
-            <span class="card-category">UX/UI Design · Mobile App</span>
+            <span class="card-category">UX/UI Design · Lead Product Designer</span>
             <h3 class="serif-card-title">Cúmulo App</h3>
+            <p class="rrhh-data"><i class='bx bx-check-circle'></i> App móvil de microahorro · Sistema de rachas · +65% rapidez de registro</p>
           </div>
         </div>
       </a>
 
-      <!-- CÚMULO WEB -->
+      <!-- CÚMULO WEB (1 ESPACIO) -->
       <a href="cumulo-web.html" class="card observer-item fade-in-up">
         <div class="card-image">
-                    <img src="img/Cumulo-Web/cumulo_web_mockup.png" alt="Cúmulo Web Mockup">
+          <img src="img/Cumulo-Web/cumulo_web_mockup.png" alt="Cúmulo Web Mockup">
           <div class="card-overlay">
-            <span class="card-category">Web Platform · Analytics</span>
+            <span class="card-category">Information Architecture · UI/UX Designer</span>
             <h3 class="serif-card-title">Cúmulo Web</h3>
+            <p class="rrhh-data"><i class='bx bx-check-circle'></i> Analítica financiera · Visualización de datos · 93% consistencia de hábito</p>
           </div>
         </div>
       </a>
 
-      <!-- CURARIO -->
+      <!-- CURARIO (1 ESPACIO) -->
       <a href="curario.html" class="card observer-item fade-in-up">
         <div class="card-image">
-                    <img src="img/Curario.png" alt="Curario">
+          <img src="img/Curario.png" alt="Curario">
           <div class="card-overlay">
-            <span class="card-category">Service Design · UX Research</span>
+            <span class="card-category">UX Research · Service Design</span>
             <h3 class="serif-card-title">Curario</h3>
+            <p class="rrhh-data"><i class='bx bx-check-circle'></i> Service Design biblioteca UNAM · 30 entrevistas · Curaduría bibliográfica</p>
           </div>
         </div>
       </a>
 
-      <!-- SAM -->
+      <!-- SAM (1 ESPACIO) -->
       <a href="sam.html" class="card observer-item fade-in-up">
         <div class="card-image">
-                    <img src="img/SAM.jpg" alt="SAM">
+          <img src="img/SAM.jpg" alt="SAM">
           <div class="card-overlay">
-            <span class="card-category">Inclusive Design · Museums</span>
+            <span class="card-category">Inclusive Design · Museum Accessibility</span>
             <h3 class="serif-card-title">SAM (MUNAL)</h3>
+            <p class="rrhh-data"><i class='bx bx-check-circle'></i> Accesibilidad en museos · Sistema multisensorial · Pruebas en campo</p>
           </div>
         </div>
       </a>
 
-      <!-- CICLO -->
+      <!-- CICLO (1 ESPACIO) -->
       <a href="ciclo.html" class="card observer-item fade-in-up">
         <div class="card-image">
-                    <img src="img/Ciclo.jpg" alt="CICLO">
+          <img src="img/Ciclo.jpg" alt="CICLO">
           <div class="card-overlay">
-            <span class="card-category">Product Design · Physical</span>
+            <span class="card-category">UX Research · Ergonomic Design</span>
             <h3 class="serif-card-title">CICLO</h3>
+            <p class="rrhh-data"><i class='bx bx-check-circle'></i> Producto físico · Etnografía AEIOU · Proyecto Fundación FEMSA</p>
           </div>
         </div>
       </a>
@@ -125,57 +142,68 @@
         <img src="img/Gandhi-About.png" alt="Gandhi" class="portrait-about">
       </div>
       <div class="sobre-mi-content observer-item fade-in-up">
-        <h2 class="sobre-mi-title">Observar antes de crear.</h2>
+        <h2 class="serif-subtitle" style="text-align: left;">Observar antes de crear.</h2>
         <p>Diseñador Industrial egresado de la UNAM, con enfoque directo en la experiencia de usuario. Mi formación industrial me enseñó a mirar más allá de la pantalla: observar cómo se interactúa, dónde se falla y cómo se siente.</p>
         <p>Creo en el diseño sobrio. En la elegancia de lo delicado y en que los sistemas más robustos son los que parecen invisibles. Me enfoco en remover las fricciones emocionales entre la persona y el producto.</p>
         
-        <div class="skills-editorial">
-          <div class="skill-line">
+        <div class="skills-grid">
+          <div class="skill-category">
             <span class="eyebrow">UX Research & Estrategia</span>
-            <p class="skill-list">Systems Thinking · Service Design · User Interviews · Inclusive Design · Information Architecture</p>
+            <div class="sobre-mi-tags">
+              <span class="tag">Systems Thinking</span>
+              <span class="tag">Service Design</span>
+              <span class="tag">User Interviews</span>
+              <span class="tag">Inclusive Design</span>
+              <span class="tag">Information Architecture</span>
+              <span class="tag">Trabajo Interdisciplinario</span>
+            </div>
           </div>
-          <div class="skill-line">
+          <div class="skill-category">
             <span class="eyebrow">Diseño de Producto</span>
-            <p class="skill-list">Interaction Design · Design Systems · Prototyping · Figma</p>
+            <div class="sobre-mi-tags">
+              <span class="tag">Interaction Design</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">Ergonomics</span>
+              <span class="tag">Design Systems</span>
+              <span class="tag">Figma Avanzado</span>
+              <span class="tag">Bases de HTML & CSS</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ORBITAL & QUOTE SECTION -->
+  <!-- QUOTE & HERRAMIENTAS SECTION -->
   <section class="orbital-section section-padding observer-item fade-in">
-    <div class="orbital-container">
-      <h2 class="serif-quote">"Menos, pero <span class="italic">mejor</span>."</h2>
+    <div class="quote-editorial-container">
+      <h2 class="serif-quote">"Menos, pero <span class="italic highlight-orange">mejor</span>."</h2>
       <span class="quote-author">— Dieter Rams</span>
       
-      <!-- Icons Orbiting (Símbolos minimalistas) -->
-      <!-- Floating Skills -->
-      <div class="orbit">
-        <div class="software-icon icon-1"><span>Indesign</span></div>
-        <div class="software-icon icon-2"><span>Photoshop</span></div>
-        <div class="software-icon icon-3"><span>Illustrator</span></div>
-        <div class="software-icon icon-4"><span>Solidworks</span></div>
-        <div class="software-icon icon-5"><span>Figma</span></div>
-        <div class="software-icon icon-6"><span>FigJam</span></div>
-        <div class="software-icon icon-7"><span>Canva</span></div>
-        <div class="software-icon icon-8"><span>Miro</span></div>
-        <div class="software-icon icon-9"><span>Google</span></div>
-        <div class="software-icon icon-10"><span>Claude</span></div>
-        <div class="software-icon icon-11"><span>Gemini</span></div>
-        <div class="software-icon icon-12"><span>Antigravity</span></div>
+      <div class="tools-editorial-grid">
+        <div class="tool-pill"><span class="tool-dot"></span>Figma</div>
+        <div class="tool-pill"><span class="tool-dot"></span>FigJam</div>
+        <div class="tool-pill"><span class="tool-dot"></span>Miro</div>
+        <div class="tool-pill"><span class="tool-dot"></span>Photoshop</div>
+        <div class="tool-pill"><span class="tool-dot"></span>Illustrator</div>
+        <div class="tool-pill"><span class="tool-dot"></span>InDesign</div>
+        <div class="tool-pill"><span class="tool-dot"></span>SolidWorks</div>
+        <div class="tool-pill"><span class="tool-dot"></span>HTML & CSS</div>
+        <div class="tool-pill"><span class="tool-dot"></span>Claude AI</div>
+        <div class="tool-pill"><span class="tool-dot"></span>Gemini AI</div>
+        <div class="tool-pill"><span class="tool-dot"></span>Antigravity</div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER VERDE OLIVA MILITAR CONSTANTE -->
   <footer>
     <div class="footer-inner">
       <div class="logo" style="pointer-events: none;">gandhi<span class="logo-dot"></span></div>
       <div class="footer-links">
         <a href="tel:+527777161443">Teléfono</a>
-        <a href="https://www.linkedin.com/in/gandhi-gallardo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://wa.me/527777161443?text=Hola" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/gandhi-gallardo" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/527777161443?text=Hola" target="_blank">WhatsApp</a>
       </div>
     </div>
   </footer>

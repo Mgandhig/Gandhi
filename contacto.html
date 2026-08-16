@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Let's Work | Gandhi</title>
+  <meta name="description" content="Contacta a Gandhi para colaborar en proyectos de diseño UX/UI y de producto: equipos, agencias o retos técnicos donde el diseño centrado en el usuario haga la diferencia.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Let's Work | Gandhi">
+  <meta property="og:description" content="Contacta a Gandhi para colaborar en proyectos de diseño UX/UI y de producto: equipos, agencias o retos técnicos donde el diseño centrado en el usuario haga la diferencia.">
+  <meta property="og:image" content="img/Gandhi-About.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta name="twitter:card" content="summary_large_image">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,12 +116,12 @@
 <body>
   <nav class="glass-nav">
     <a href="index.html" class="logo">gandhi<span class="logo-dot"></span></a>
-    <div class="menu-toggle" id="mobile-menu">
+    <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links-list">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
-    </div>
-    <ul class="nav-links">
+    </button>
+    <ul class="nav-links" id="nav-links-list">
       <li><a href="index.html#inicio">Inicio</a></li>
       <li><a href="index.html#proyectos">Proyectos</a></li>
     </ul>

@@ -5,54 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' x='40' font-family='Arial, sans-serif' font-size='85' font-weight='800' fill='%23181818' text-anchor='middle'%3Eg%3C/text%3E%3Ccircle cx='80' cy='70' r='14' fill='%235E6E4C'/%3E%3C/svg%3E">
   <title>Curario - Estudio de Caso | Gandhi</title>
+  <meta name="description" content="Curario: rediseño de servicio para la Biblioteca Clara Porset (UNAM) que reduce la fricción entre estudiantes y el acervo bibliográfico mediante investigación UX.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Curario - Estudio de Caso | Gandhi">
+  <meta property="og:description" content="Curario: rediseño de servicio para la Biblioteca Clara Porset (UNAM) que reduce la fricción entre estudiantes y el acervo bibliográfico mediante investigación UX.">
+  <meta property="og:image" content="img/Curario.png">
+  <meta property="og:image:width" content="1799">
+  <meta property="og:image:height" content="1153">
+  <meta name="twitter:card" content="summary_large_image">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-  
+
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="case-study-base.css">
   <style>
-    /* Case Study Specific Styles */
-    body { background-color: var(--bg-color); }
-    
-    
-    
-    
-    
-    .case-hero {
-      padding: 180px 4rem 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .case-title {
-      font-size: clamp(3rem, 6vw, 5rem);
-      margin-bottom: 1.5rem;
-      color: var(--text-main);
-    }
-    .case-subtitle {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto 4rem;
-      font-weight: 300;
-      line-height: 1.6;
-    }
-    
-    .case-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      text-align: left;
-      border-top: 1px solid var(--border-delicate);
-      border-bottom: 1px solid var(--border-delicate);
-      padding: 2.5rem 0;
-      margin-bottom: 4rem;
-    }
-    .meta-item { display: flex; flex-direction: column; gap: 0.6rem; }
-    .meta-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); }
-    .meta-value { font-size: 0.9rem; color: var(--text-main); font-weight: 300; line-height: 1.4; }
-    
+    /* Case Study Specific Styles (solo lo único de esta página) */
+
     .case-hero-image {
       width: 100%;
       height: 65vh;
@@ -63,64 +35,21 @@
     .case-hero-image img {
       width: 100%; height: 100%; object-fit: cover;
     }
-    
-    .article-body {
-      max-width: 750px;
-      margin: 0 auto;
-      padding-bottom: 120px;
-    }
-    .article-body h2 {
-      clear: both; /* Evita colisión tipográfica con imágenes flotantes previas */
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      color: var(--accent-gold);
-      margin: 8rem 0 2.5rem; /* Capítulos editoriales híper-aislados para marcar ritmo */
-      font-weight: 400;
-      line-height: 1.3;
-    }
-    .article-body p {
-      font-size: 1.1rem;
-      line-height: 1.85; /* Refinamiento profundo de legibilidad vertical */
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
-      font-weight: 300;
-      letter-spacing: 0.015em;
-    }
-    .article-body strong {
-      color: var(--text-main);
-      font-weight: 400;
-    }
-    
-    .insight-quote {
-      border-left: 2px solid var(--accent-gold);
-      padding-left: 2.5rem;
-      margin: 4rem 0;
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-      line-height: 1.4;
-      color: var(--text-main);
-      font-style: italic;
-    }
-    
+
     @media (max-width: 900px) {
-      
-      .case-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-      .case-hero { padding: 140px 2rem 40px; }
-      .article-body { padding: 0 2rem 80px; }
       .case-hero-image { height: 40vh; }
-      .insight-quote { font-size: 1.4rem; padding-left: 1.5rem; }
     }
   </style>
 </head>
 <body>
     <nav class="glass-nav">
     <a href="index.html" class="logo">gandhi<span class="logo-dot"></span></a>
-    <div class="menu-toggle" id="mobile-menu">
+    <button class="menu-toggle" id="mobile-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links-list">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
-    </div>
-    <ul class="nav-links">
+    </button>
+    <ul class="nav-links" id="nav-links-list">
       <li><a href="index.html#inicio">Inicio</a></li>
       <li><a href="index.html#proyectos">Proyectos</a></li>
       <li><a href="index.html#sobre-mi">Sobre mí</a></li>
@@ -158,7 +87,7 @@
       <h2>El Problema Invisible</h2>
       
       <figure class="article-image pull-left observer-item fade-in-up">
-        <img src="img/Curario/Entrevista 1.jpg" alt="Entrevista etnográfica en la biblioteca" style="border: none; border-radius: 4px;">
+        <img src="img/Curario/Entrevista 1.jpg" alt="Entrevista etnográfica en la biblioteca" style="border: none; border-radius: 4px;" width="463" height="512" loading="lazy">
         <figcaption class="observer-item fade-in" style="font-size: 0.8rem; color: var(--text-muted); margin-top: -0.5rem; text-align: center;">Inmersión Contextual.</figcaption>
       </figure>
 
@@ -199,12 +128,12 @@
 
       <div style="display: flex; justify-content: center; gap: 3.5rem; margin: 4rem 0; flex-wrap: wrap;">
         <figure class="article-image tilt-left observer-item fade-in-up" style="margin: 0;">
-          <img src="img/Curario/Entrevista 2.jpg" alt="Entrevistas" style="aspect-ratio: 4/3; object-fit: cover;">
+          <img src="img/Curario/Entrevista 2.jpg" alt="Entrevistas" style="aspect-ratio: 4/3; object-fit: cover;" width="360" height="390" loading="lazy">
           <figcaption class="observer-item fade-in" style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: -0.5rem;">Entrevistas.</figcaption>
         </figure>
 
         <figure class="article-image tilt-right observer-item fade-in-up" style="margin: 0;">
-          <img src="img/Curario/Mapas de empatia.jpg" alt="Mapas de empatía" style="aspect-ratio: 4/3; object-fit: cover; object-position: top;">
+          <img src="img/Curario/Mapas de empatia.jpg" alt="Mapas de empatía" style="aspect-ratio: 4/3; object-fit: cover; object-position: top;" width="390" height="512" loading="lazy">
           <figcaption class="observer-item fade-in" style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: -0.5rem;">Análisis actitudinal.</figcaption>
         </figure>
       </div>
@@ -229,7 +158,7 @@
         <h2>Impacto y Recepción</h2>
         
         <figure class="article-image pull-left observer-item fade-in-up" style="margin-top: 0.5rem; margin-right: 3rem; margin-left: -5rem; width: 220px;">
-          <img src="img/Curario/Maqueta 2.jpg" alt="Testeo físico de Curario" style="height: 180px; object-fit: cover; object-position: bottom;">
+          <img src="img/Curario/Maqueta 2.jpg" alt="Testeo físico de Curario" style="height: 180px; object-fit: cover; object-position: bottom;" width="1200" height="1800" loading="lazy">
           <figcaption style="font-size: 0.75rem;">Fase 4: Despliegue de prototipo rápido.</figcaption>
         </figure>
 

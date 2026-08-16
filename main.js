@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Preloader dismiss (duración extendida para apreciar la animación)
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.classList.add('loaded');
+            }, 900);
+        });
+        // Fallback safety timeout if load event already fired
+        setTimeout(() => {
+            preloader.classList.add('loaded');
+        }, 1600);
+    }
     // Scroll reveal animation
     const observerOptions = {
         root: null,
@@ -18,17 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const elementsToObserve = document.querySelectorAll('.observer-item');
     elementsToObserve.forEach(el => observer.observe(el));
 
-    // Navbar scroll effect
-    const nav = document.querySelector('.glass-nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.style.background = 'rgba(255, 255, 255, 0.70)'; // Blanco con más opacidad al bajar
-            nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.05)';
-        } else {
-            nav.style.background = 'rgba(255, 255, 255, 0.35)'; // Blanco casi transparente arriba
-            nav.style.boxShadow = 'none';
-        }
-    });
+    // Navbar fija con color verde militar constante (sin mutación por scroll)
 
     // Smooth scroll for anchor links
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
@@ -65,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // PARTICLE PORTRAIT SYSTEM (Swarm Intelligence)
+    // PARTICLE PORTRAIT SYSTEM (Swarm Intelligence - Pinned to RIGHT)
     const canvas = document.getElementById('particle-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
@@ -73,9 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let particlesArray = [];
         let resetPortrait = null;
         
-        // Ajustar Canvas al 100% de la ventana
-        // Debounce: espera 300ms tras el último evento resize antes de reiniciar
-        // las partículas, evitando tanto el parpadeo como las posiciones incorrectas.
         let resizeTimer;
         function resizeCanvas() {
             canvas.width = window.innerWidth;
@@ -94,15 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let mouse = {
             x: null,
             y: null,
-            radius: 120 // Un poco más grande para el lienzo total
+            radius: 120
         };
 
-        // Escuchar el movimiento del mouse, pero limitar su efecto a la sección del Hero
         window.addEventListener('mousemove', function(event) {
-            // Si el scroll ya bajó más del 100% de la pantalla, ignorar el mouse para las partículas
             if (window.scrollY <= window.innerHeight) {
                 mouse.x = event.clientX;
-                // Sumamos scrollY para que el mouse mapee exactamente la posición incluso si has bajado un poco
                 mouse.y = event.clientY + window.scrollY; 
             } else {
                 mouse.x = null;
@@ -122,20 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
             let imageData;
 
             function buildImageData() {
-                // Lógica para posicionar el rostro en la parte DERECHA del lienzo total
-                // Queremos que ocupe aprox el 40% del ancho y 90% del alto
-                const targetAreaWidth = canvas.width * 0.45;
-                const targetAreaHeight = canvas.height * 0.95;
+                // Escala prominente en la parte DERECHA del lienzo total
+                const targetAreaWidth = canvas.width * 0.48;
+                const targetAreaHeight = canvas.height * 0.88;
                 
-                const scale = Math.min(targetAreaWidth / img.width, targetAreaHeight / img.height) * 1.1;
+                const scale = Math.min(targetAreaWidth / img.width, targetAreaHeight / img.height) * 1.15;
                 const drawWidth = img.width * scale;
                 const drawHeight = img.height * scale;
                 
-                // Posicionamiento editorial: a la derecha con un poco de aire (margin) y ajuste de +50px
-                const offsetX = (canvas.width - drawWidth - (canvas.width * 0.05)) + 50; 
-                const offsetY = canvas.height - drawHeight; // Pegado a la base
+                // Alineado al borde derecho con 2% de margen y pegado a la base
+                const offsetX = (canvas.width - drawWidth) - (canvas.width * 0.02); 
+                const offsetY = canvas.height - drawHeight;
 
-                // Dibujar la imagen de forma invisible para escaneo
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
                 imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -144,14 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
             
             class Particle {
                 constructor(x, y, color) {
-                    // UX HACK: Inician perdidas aleatoriamente por todo el espacio
                     this.x = Math.random() * canvas.width; 
                     this.y = Math.random() * canvas.height;
                     this.baseX = x;
                     this.baseY = y;
                     this.color = color;
                     this.density = (Math.random() * 20) + 1;
-                    this.size = 1.1; // Un poco más grandes para compensar la menor densidad
+                    this.size = 1.1; 
                     this.resistance = Math.random() * 0.7 + 0.3; 
                     this.wobble = Math.random() * 40 - 20; 
                 }
@@ -168,12 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     let forceDirectionX = dx / distance;
                     let forceDirectionY = dy / distance;
                     
-                    // El radio de colisión ya no es un círculo perfecto, cada molécula siente el magnetismo distinto
                     let actualRadius = mouse.radius + this.wobble;
                     let force = (actualRadius - distance) / actualRadius;
                     
-                    // Empuje dinámico afectado por la terquedad de cada partícula individual
-                    // MULTIPLICADO X12 para una dispersión ultra agresiva y veloz
                     const dispersionSpeed = 12;
                     let directionX = forceDirectionX * force * this.density * this.resistance * dispersionSpeed;
                     let directionY = forceDirectionY * force * this.density * this.resistance * dispersionSpeed;
@@ -182,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         this.x -= directionX;
                         this.y -= directionY;
                     } else {
-                        // Elástico de retorno (regresan a velocidades ligeramente distintas creando orgánicidad)
                         if (this.x !== this.baseX) {
                             let dx = this.x - this.baseX;
                             this.x -= dx / (5 / this.resistance); 
@@ -197,7 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function init() {
                 particlesArray = [];
-                // STEP 3: Balance perfecto entre alta resolución y rendimiento fluido 60 FPS
                 const step = 3; 
                 
                 for (let y = 0, y2 = imageData.height; y < y2; y += step) {
@@ -208,11 +197,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         const b = imageData.data[index+2];
                         const a = imageData.data[index+3];
 
-                        // r > 10 captura cada pequeño fantasma de luz de tu foto original
                         if (r > 10 && a > 0) { 
-                            // Transformamos mágicamente la data visual para que pinte Verde Oscuro (Oliva Oscuro)
                             const alpha = (a / 255) * 0.9; 
-                            particlesArray.push(new Particle(x, y, `rgba(45, 60, 35, ${alpha})`));
+                            // Mezcla dual-tone: 70% verde oliva militar + 30% acentos naranja cálido
+                            const isOrangeAccent = Math.random() < 0.30;
+                            const color = isOrangeAccent 
+                                ? `rgba(224, 109, 59, ${alpha * 0.95})`    /* Naranja Cálido de Resalte */
+                                : `rgba(38, 50, 28, ${alpha})`;             /* Verde Oliva Militar */
+                            particlesArray.push(new Particle(x, y, color));
                         }
                     }
                 }
